@@ -1,0 +1,8 @@
+---
+name: "CI workflow"
+on:
+  push:
+    branches:
+      - master
+jobs:
+  

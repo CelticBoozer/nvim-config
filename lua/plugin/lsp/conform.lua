@@ -38,10 +38,5 @@ return {
 			["*"] = { "codespell" },
 			["_"] = { "trim_whitespace" },
 		},
-		-- format_on_save = {
-		-- 	lsp_fallback = true,
-		-- 	async = true,
-		-- 	timeout_ms = 1000,
-		-- },
 	},
 }
