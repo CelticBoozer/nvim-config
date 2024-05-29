@@ -15,4 +15,4 @@ jobs:
       - name: Run luacheck linter
         uses: lunarmodules/luacheck@v1
       - name: Lint YAML files
-        uses: ansible-actions/yamllint-action@v0.0.2
+        uses: ibiqlik/action-yamllint@v3
