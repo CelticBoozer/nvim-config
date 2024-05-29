@@ -1,18 +1,25 @@
 ---
-name: "Linting "
+name: "Linting and formatting"
 # yamllint disable-line rule:truthy
 on:
   push:
     branches:
       - master
 jobs:
-  lint_code:
-    name: "Linting lua code with luacheck..."
+  format_check:
+    name: Checking format style...
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Run luacheck linter
+      - uses: norwd/fmtya@v1
+  lint_code:
+    name: Linting code with...
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Run luacheck
         uses: lunarmodules/luacheck@v1
-      - name: Lint YAML files
+      - name: Run yamllint
         uses: ibiqlik/action-yamllint@v3
