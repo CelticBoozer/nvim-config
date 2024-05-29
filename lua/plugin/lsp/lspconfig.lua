@@ -1,4 +1,5 @@
 -- INFO: LSP configuration
+-- luacheck:ignore 212
 return {
 	"neovim/nvim-lspconfig",
 	lazy = false,
@@ -7,7 +8,6 @@ return {
 		require("lspconfig.ui.windows").default_options.border = "rounded"
 		vim.api.nvim_set_hl(0, "LspInfoBorder", { fg = "#d4be98" })
 		local lspconfig = require("lspconfig")
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 		local keymap = vim.keymap
 		local opts = { noremap = true, silent = true }
 		local on_attach = function(client, bufnr)
@@ -45,8 +45,9 @@ return {
 			keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
 		end
 
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities.textDocument.foldingRange = {
+		-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+		local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    capabilities.textDocument.foldingRange = {
 			dynamicRegistration = false,
 			lineFoldingOnly = true,
 		}
