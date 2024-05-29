@@ -1,8 +1,13 @@
 ---
 name: "CI workflow"
+# yamllint disable-line rule:truthy
 on:
   push:
     branches:
       - master
 jobs:
-  
+  lint_code:
+    name: "Test"
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo TEST MESSAGE!!!!!
