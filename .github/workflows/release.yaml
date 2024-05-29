@@ -12,5 +12,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - run: "ls -la\ pwd"
       - name: Run luacheck linter
         uses: lunarmodules/luacheck@v1
