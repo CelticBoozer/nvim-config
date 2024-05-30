@@ -1,0 +1,4 @@
+# https://github.com/JohnnyMorganz/StyLua config file.
+# Simply copy this file to the root of the project.
+indent_type = "Spaces"
+indent_width = 2
