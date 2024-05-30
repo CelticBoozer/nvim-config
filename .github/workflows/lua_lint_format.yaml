@@ -1,12 +1,13 @@
 ---
-name: "Linting and formatting code"
+name: "Linting and formatting lua code"
+# yamllint disable-line rule:truthy
 on:
   push:
     branches:
       - master
 jobs:
   format_check:
-    name: Checking format style...
+    name: StyLua
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -18,14 +19,10 @@ jobs:
           version: latest
           args: --check .
   lint_code:
-    name: Linting code with...
+    name: luacheck
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Run luacheck
         uses: lunarmodules/luacheck@v1
-      - name: Run yamllint
-        uses: ibiqlik/action-yamllint@v3
-        with:
-          strict: true
