@@ -27,3 +27,5 @@ jobs:
         uses: lunarmodules/luacheck@v1
       - name: Run yamllint
         uses: ibiqlik/action-yamllint@v3
+        with:
+          strict: true
