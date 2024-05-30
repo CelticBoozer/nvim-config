@@ -1,6 +1,5 @@
 ---
 name: "Linting and formatting code"
-# yamllint disable-line rule:truthy
 on:
   push:
     branches:
