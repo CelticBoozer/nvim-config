@@ -1,5 +1,5 @@
 ---
-name: "Linting and formatting"
+name: "Linting and formatting code"
 # yamllint disable-line rule:truthy
 on:
   push:
@@ -12,7 +12,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - uses: norwd/fmtya@v1
+      - name: Check lua format
+        uses: JohnnyMorganz/stylua-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: latest
+          args: --check .
   lint_code:
     name: Linting code with...
     runs-on: ubuntu-latest
