@@ -1,7 +1,5 @@
 # My NeoVim configuration style guide
 
-This tutorial is purely for me to keep my plugin configuration style in mind.
-
 [General rules](#general-rules)
 
 [Plugin configuration rules](#plugin-configuration-rules)
@@ -11,6 +9,7 @@ This tutorial is purely for me to keep my plugin configuration style in mind.
 ## General rules
 
 - The entire configuration should be written in lua, never use vimscript;
+- All configuration files should be checked with stylua;
 - All configuration files should be linted with luacheck;
 
 ## Plugin configuration rules

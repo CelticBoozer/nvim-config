@@ -28,6 +28,7 @@ return {
       css = { "stylelint" },
       java = { "checkstyle" },
       sql = { "sqlfluff" },
+      markdown = { "markdownlint" },
     }
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
