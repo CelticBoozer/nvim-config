@@ -59,6 +59,7 @@ return {
         "stylelint",
         "checkstyle",
         "sqlfluff",
+        "markdownlint",
 
         -- Formatters
         "ruff", -- Python formatter
