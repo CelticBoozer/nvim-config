@@ -20,7 +20,7 @@ return {
     formatters_by_ft = {
       python = { "ruff" },
       lua = { "stylua" },
-      markdown = { "prettier" },
+      markdown = { "markdownlint" },
       sh = { "shfmt" },
       json = { "prettier" },
       yaml = { "yamlfmt" },

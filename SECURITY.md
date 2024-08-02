@@ -1,42 +1,50 @@
-# Security Policies and Procedures
+# Security Policy
 
-This document outlines security procedures and general policies for the `standard`
-project.
+## Supported Versions
 
-  * [Reporting a Bug](#reporting-a-bug)
-  * [Disclosure Policy](#disclosure-policy)
-  * [Comments on this Policy](#comments-on-this-policy)
+We actively maintain and support the following versions of this Neovim configuration.
+Security updates will be provided for these versions:
 
-## Reporting a Bug
+- Main branch (latest)
 
-The `standard` team and community take all security bugs in `standard` seriously.
-Thank you for improving the security of `standard`. We appreciate your efforts and
-responsible disclosure and will make every effort to acknowledge your
-contributions.
+## Reporting a Vulnerability
 
-Report security bugs by emailing the lead maintainer at feross@feross.org.
+We take the security of our Neovim configuration repository seriously. If you
+discover a security vulnerability, please follow the steps below:
 
-The lead maintainer will acknowledge your email within 48 hours, and will send a
-more detailed response within 48 hours indicating the next steps in handling
-your report. After the initial reply to your report, the security team will
-endeavor to keep you informed of the progress towards a fix and full
-announcement, and may ask for additional information or guidance.
+1. **Do not open a public issue.** This is to ensure that any vulnerabilities are
+   not exploited before they are fixed.
+2. **Email the maintainers at:** [celtic.boozer@proton.me](mailto:celtic.boozer@proton.me)
+   - Please provide as much information as possible, including a description of
+     the vulnerability, potential impact, and any steps required to reproduce
+     the issue.
+3. **Expect a response within 48 hours.** We will acknowledge receipt of your
+   report and work to verify and address the issue as soon as possible.
 
-Report security bugs in third-party modules to the person or team maintaining
-the module.
+## Responsible Disclosure
 
-## Disclosure Policy
+We encourage responsible disclosure of vulnerabilities. Once we receive a security
+report, we will work to investigate and fix the issue promptly. After the issue is
+resolved, we will publish a security advisory to inform the community.
 
-When the security team receives a security bug report, they will assign it to a
-primary handler. This person will coordinate the fix and release process,
-involving the following steps:
+## Security Best Practices
 
-  * Confirm the problem and determine the affected versions.
-  * Audit code to find any potential similar problems.
-  * Prepare fixes for all releases still under maintenance. These fixes will be
-    released as fast as possible to npm.
+While using and contributing to this Neovim configuration repository, please
+adhere to the following security best practices:
 
-## Comments on this Policy
+- **Keep your Neovim and plugins up-to-date:** Regularly update Neovim and any
+  plugins or dependencies to their latest versions.
+- **Use trusted plugins:** Only install plugins from trusted sources, and review
+  their code if possible.
+- **Avoid sensitive information in configuration files:** Do not store sensitive
+  information, such as passwords or API keys, in your configuration files. Use
+  environment variables or secure vaults when needed.
 
-If you have suggestions on how this process could be improved please submit a
-pull request.
+## Contact
+
+For any security-related inquiries or concerns, please reach out to the maintainers
+at [celtic.boozer@proton.me](mailto:celtic.boozer@proton.me).
+
+---
+
+Thank you for helping to keep our community and users safe!

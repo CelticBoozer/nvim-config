@@ -4,8 +4,7 @@ return {
   lazy = true,
   dependencies = { "nvim-tree/nvim-web-devicons" }, -- Just pretty icons
   keys = {
-    { "<leader>td", ":Trouble document_diagnostics<CR>", desc = "trouble diagnostics document" },
-    { "<leader>tD", ":Trouble workspace_diagnostics<CR>", desc = "trouble diagnostics workspace" },
+    { "<leader>td", ":Trouble diagnostics<CR>", desc = "trouble diagnostics document" },
     { "<leader>tr", ":Trouble lsp_references<CR>", desc = "references" },
     { "<leader>tR", ":Trouble lsp_definitions<CR>", desc = "definition" },
   },
