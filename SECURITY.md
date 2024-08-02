@@ -14,7 +14,7 @@ discover a security vulnerability, please follow the steps below:
 
 1. **Do not open a public issue.** This is to ensure that any vulnerabilities are
    not exploited before they are fixed.
-2. **Email the maintainers at:** [celtic.boozer@proton.me](mailto:celtic.boozer@proton.me)
+2. **Email the maintainers at:** <celtic.boozer@proton.me>
    - Please provide as much information as possible, including a description of
      the vulnerability, potential impact, and any steps required to reproduce
      the issue.
@@ -43,7 +43,7 @@ adhere to the following security best practices:
 ## Contact
 
 For any security-related inquiries or concerns, please reach out to the maintainers
-at [celtic.boozer@proton.me](mailto:celtic.boozer@proton.me).
+at <celtic.boozer@proton.me>.
 
 ---
 
