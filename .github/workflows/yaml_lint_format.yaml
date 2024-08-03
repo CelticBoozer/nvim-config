@@ -12,8 +12,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Install go
+        uses: actions/setup-go@v5
+      - name: Install yamlfmt
+        run: go install github.com/google/yamlfmt/cmd/yamlfmt@latest
       - name: Run yamlfmt
-        uses: norwd/fmtya@v1
+        uses: yamlfmt -lint .
   lint_code:
     name: Run yamllint
     runs-on: ubuntu-latest
