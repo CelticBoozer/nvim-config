@@ -193,8 +193,10 @@ Guidelines for Writing Good Commit Messages
     Separate Summary from Body with a Blank Line: This makes the message
     easier to read.
 
-### Code style
+### Code stylew
 
+First of all, check out the [style guide](https://github.com/CelticBoozer/nvim-config/blob/master/STYLE_GUIDE.md)
+for customizing plugins.
 All code must be linted and formatted according to the rules. A list of linters,
 formatters and their configurations can be found in the [repository](https://github.com/CelticBoozer/lint-format-config).
 
