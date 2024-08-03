@@ -6,6 +6,7 @@ on:
   - pull_request
 jobs:
   lint:
+    name: Run markdownlint-cli
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository

@@ -5,7 +5,8 @@ on:
   - push
   - pull_request
 jobs:
-  commit-check:
+  commit_check:
+    name: Run check commit
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
