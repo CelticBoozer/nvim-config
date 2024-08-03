@@ -1,27 +1,25 @@
 ---
-name: "Linting and formatting yaml code"
+name: "Lint and format yaml code"
 # yamllint disable-line rule:truthy
 on:
   push:
     branches:
       - master
 jobs:
-  # format_check:
-  #   name: Checking format style...
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v4
-  #     - name: Check lua format
-  #       uses: JohnnyMorganz/stylua-action@v4
-  #       with:
-  #         token: ${{ secrets.GITHUB_TOKEN }}
-  #         version: latest
-  #         args: --check .
-  lint_code:
-    name: yamllint
+  format_check:
+    name: Run yamlfmt
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Run yamlfmt
+        uses: norwd/fmtya@v1
+  lint_code:
+    name: Run yamllint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
       - name: Run yamllint
         uses: ibiqlik/action-yamllint@v3
         with:

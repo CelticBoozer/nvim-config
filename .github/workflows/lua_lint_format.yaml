@@ -1,5 +1,5 @@
 ---
-name: "Linting and formatting lua code"
+name: "Lint and format lua"
 # yamllint disable-line rule:truthy
 on:
   push:
@@ -7,7 +7,7 @@ on:
       - master
 jobs:
   format_check:
-    name: StyLua
+    name: Run stylua
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -19,7 +19,7 @@ jobs:
           version: latest
           args: --check .
   lint_code:
-    name: luacheck
+    name: Run luacheck
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository

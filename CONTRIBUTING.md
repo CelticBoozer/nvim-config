@@ -27,6 +27,7 @@ appreciation, which we would also be very happy about:
   - [Suggesting Enhancements](#suggesting-enhancements)
 - [Styleguides](#styleguides)
   - [Commit Messages](#commit-messages)
+  - [Code style](#code-style)
 
 ## Code of Conduct
 
@@ -162,7 +163,7 @@ and [Discussions](https://github.com/CelticBoozer/nvim-config/discussions).
 - fix: A bug fix
 - docs: Documentation changes
 - style: Changes that do not affect the meaning of the code (white-space,
-    formatting, etc.)
+  formatting, etc.)
 - refactor: Code changes that neither fix a bug nor add a feature
 - test: Adding or correcting tests
 - chore: Maintenance tasks
@@ -176,9 +177,9 @@ and [Discussions](https://github.com/CelticBoozer/nvim-config/discussions).
 3. Body:
 
 - Details: An optional section that can provide more context or details
-    about the change, such as what was changed, why it was changed, and how
-    it was done. Each bullet point starts with a verb to make it clear what
-    action was taken.
+  about the change, such as what was changed, why it was changed, and how
+  it was done. Each bullet point starts with a verb to make it clear what
+  action was taken.
 
 Guidelines for Writing Good Commit Messages
 
@@ -190,13 +191,14 @@ Guidelines for Writing Good Commit Messages
   change or what it accomplishes, especially if it's not immediately obvious.
 - Limit Line Length: Keep the summary line to around 50 characters if
   possible. The body can be more flexible but should still be concise.
-    Separate Summary from Body with a Blank Line: This makes the message
-    easier to read.
+- Separate Summary from Body with a Blank Line: This makes the message
+  easier to read.
 
-### Code stylew
+### Code style
 
 First of all, check out the [style guide](https://github.com/CelticBoozer/nvim-config/blob/master/STYLE_GUIDE.md)
 for customizing plugins.
+
 All code must be linted and formatted according to the rules. A list of linters,
 formatters and their configurations can be found in the [repository](https://github.com/CelticBoozer/lint-format-config).
 
