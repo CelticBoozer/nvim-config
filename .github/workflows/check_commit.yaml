@@ -16,6 +16,6 @@ jobs:
           branch: false
           author-name: true
           author-email: true
-          commit-signoff: true
+          commit-signoff: false
           dry-run: false
           job-summary: true
