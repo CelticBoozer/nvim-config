@@ -17,7 +17,7 @@ rules:
   float-values:
     require-numeral-before-decimal: true
   indentation:
-    spaces: 2
+    spaces: 3
   key-duplicates:
     forbid-duplicated-merge-keys: true
   new-lines:
