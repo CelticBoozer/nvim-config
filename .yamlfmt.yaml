@@ -1,3 +1,4 @@
+---
 # https://github.com/google/yamlfmt config file.
 # Simply copy this file to the root of the project.
 continue_on_error: true
