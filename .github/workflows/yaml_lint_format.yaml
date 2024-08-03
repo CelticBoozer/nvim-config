@@ -17,7 +17,7 @@ jobs:
       - name: Install yamlfmt
         run: go install github.com/google/yamlfmt/cmd/yamlfmt@latest
       - name: Run yamlfmt
-        uses: yamlfmt -lint .
+        run: yamlfmt -lint .
   lint_code:
     name: Run yamllint
     runs-on: ubuntu-latest
