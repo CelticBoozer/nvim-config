@@ -1,0 +1,21 @@
+---
+name: Check commit
+# yamllint disable-line rule:truthy
+on:
+  push:
+    branches:
+      - master
+jobs:
+  commit-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: commit-check/commit-check-action@v1
+        with:
+          message: true
+          branch: false
+          author-name: true
+          author-email: true
+          commit-signoff: true
+          dry-run: true
+          job-summary: true
