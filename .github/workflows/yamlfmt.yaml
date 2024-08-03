@@ -1,10 +1,9 @@
 ---
-name: "Lint and format yaml code"
+name: "Check yaml files format with yamlfmt"
 # yamllint disable-line rule:truthy
 on:
-  push:
-    branches:
-      - master
+  - push
+  - pull_request
 jobs:
   format_check:
     name: Run yamlfmt
@@ -18,13 +17,3 @@ jobs:
         run: go install github.com/google/yamlfmt/cmd/yamlfmt@latest
       - name: Run yamlfmt
         run: yamlfmt -lint .
-  lint_code:
-    name: Run yamllint
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Run yamllint
-        uses: ibiqlik/action-yamllint@v3
-        with:
-          strict: true

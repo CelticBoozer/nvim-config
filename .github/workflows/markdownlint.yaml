@@ -1,0 +1,14 @@
+---
+name: "Lint markdown files with markdownlint"
+# yamllint disable-line rule:truthy
+on:
+  - push
+  - pull_request
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Run markdownlint
+        uses: actionshub/markdownlint@main

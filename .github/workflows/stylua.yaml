@@ -1,10 +1,9 @@
 ---
-name: "Lint and format lua"
+name: "Check lua files format with stylua"
 # yamllint disable-line rule:truthy
 on:
-  push:
-    branches:
-      - master
+  - push
+  - pull_request
 jobs:
   format_check:
     name: Run stylua
@@ -18,11 +17,3 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           version: latest
           args: --check .
-  lint_code:
-    name: Run luacheck
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Run luacheck
-        uses: lunarmodules/luacheck@v1

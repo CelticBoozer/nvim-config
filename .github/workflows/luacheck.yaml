@@ -1,0 +1,15 @@
+---
+name: "Lint lua files with luacheck"
+# yamllint disable-line rule:truthy
+on:
+  - push
+  - pull_request
+jobs:
+  lint_code:
+    name: Run luacheck
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Run luacheck
+        uses: lunarmodules/luacheck@v1

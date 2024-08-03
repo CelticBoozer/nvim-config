@@ -1,10 +1,9 @@
 ---
-name: Check commit
+name: "Check commit"
 # yamllint disable-line rule:truthy
 on:
-  push:
-    branches:
-      - master
+  - push
+  - pull_request
 jobs:
   commit-check:
     runs-on: ubuntu-latest
