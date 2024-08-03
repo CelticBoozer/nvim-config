@@ -1,5 +1,5 @@
 ---
-name: "Check lua files format with stylua"
+name: "StyLua"
 # yamllint disable-line rule:truthy
 on:
   - push

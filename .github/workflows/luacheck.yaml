@@ -1,5 +1,5 @@
 ---
-name: "Lint lua files with luacheck"
+name: "luacheck"
 # yamllint disable-line rule:truthy
 on:
   - push

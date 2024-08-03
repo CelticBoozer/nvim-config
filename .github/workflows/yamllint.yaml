@@ -1,5 +1,5 @@
 ---
-name: "Lint yaml files with yamllint"
+name: "yamllint"
 # yamllint disable-line rule:truthy
 on:
   - push
