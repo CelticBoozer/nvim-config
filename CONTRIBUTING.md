@@ -194,6 +194,8 @@ Guidelines for Writing Good Commit Messages
 - Separate Summary from Body with a Blank Line: This makes the message
   easier to read.
 
+For the full guide, see [here](https://www.conventionalcommits.org/en/v1.0.0/).
+
 ### Code style
 
 First of all, check out the [style guide](https://github.com/CelticBoozer/nvim-config/blob/master/STYLE_GUIDE.md)
