@@ -2,7 +2,6 @@
 name: "StyLua"
 # yamllint disable-line rule:truthy
 on:
-  - push
   - pull_request
 jobs:
   format_check:
