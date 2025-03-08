@@ -9,4 +9,4 @@
 
 ## Deps
 
-npm, Java, luarocks, python3, deno
+npm, Java, luarocks, git, Nerd fonts, python3, deno

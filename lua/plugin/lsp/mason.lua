@@ -60,6 +60,7 @@ return {
         "checkstyle",
         "sqlfluff",
         "markdownlint",
+        "cspell", -- spell check
 
         -- Formatters
         "ruff", -- Python formatter

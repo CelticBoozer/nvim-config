@@ -8,6 +8,7 @@ return {
       "<leader>ll",
       function()
         require("lint").try_lint()
+        require("lint").try_lint("cspell")
       end,
       desc = "lint file",
     },
