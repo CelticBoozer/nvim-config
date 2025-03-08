@@ -1,4 +1,4 @@
--- INFO: LSP install tool configuration
+-- INFO: LSP install tool
 return {
   "williamboman/mason.nvim",
   lazy = false,
@@ -25,7 +25,6 @@ return {
 
     mason_lspconfig.setup({
       ensure_installed = {
-        "ruff_lsp", -- Python LSP
         "lua_ls",
         "marksman",
         "dockerls",
@@ -37,7 +36,7 @@ return {
         "html",
         "cssls",
         "eslint",
-        "tsserver",
+        "ts_ls",
         "jdtls",
         "groovyls",
         "sqlls",
