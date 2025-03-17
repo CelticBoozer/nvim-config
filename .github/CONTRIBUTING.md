@@ -32,7 +32,7 @@ appreciation, which we would also be very happy about:
 ## Code of Conduct
 
 This project and everyone participating in it is governed by the
-[nvim-config Code of Conduct](https://github.com/CelticBoozer/nvim-config/blob/master/CODE_OF_CONDUCT.md).
+[nvim-config Code of Conduct](https://github.com/CelticBoozer/nvim-config/blob/master/.github/CODE_OF_CONDUCT.md).
 By participating, you are expected to uphold this code. Please report
 unacceptable behavior to <celtic.boozer@proton.me>.
 
@@ -159,6 +159,12 @@ and [Discussions](https://github.com/CelticBoozer/nvim-config/discussions).
 
 1. Type (feat:): Indicates the type of change. Common types include:
 
+- revert: If the commit reverts a previous commit. In the body it should say:
+  `This reverts commit <hash>`.
+- build: Changes that affect the build system or external dependencies (example
+  scopes: gulp, broccoli, npm)
+- ci: Changes to our CI configuration files and scripts (example scopes: Circle,
+  GitHub Actions)
 - feat: A new feature
 - fix: A bug fix
 - docs: Documentation changes
