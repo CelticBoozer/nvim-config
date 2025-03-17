@@ -4,7 +4,6 @@ return {
   lazy = false,
   dependencies = {
     "nvim-tree/nvim-web-devicons", -- Just pretty icons
-    "linrongbin16/lsp-progress.nvim", -- To check LSP progress
   },
   opts = {
     options = {
@@ -57,7 +56,6 @@ return {
             newfile = "[New]",
           },
         },
-        require("lsp-progress").progress,
       },
       lualine_x = {
         {

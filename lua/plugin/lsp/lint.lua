@@ -1,22 +1,19 @@
--- INFO: linter
+-- NOTE: Provides linting support for various filetypes
+
 return {
   "mfussenegger/nvim-lint",
-  lazy = false,
   event = { "BufReadPre", "BufNewFile" },
   keys = {
     {
       "<leader>ll",
       function()
         require("lint").try_lint()
-        require("lint").try_lint("cspell")
       end,
-      desc = "lint file",
+      desc = "Lint file",
     },
   },
-  config = function()
-    local lint = require("lint")
-
-    lint.linters_by_ft = {
+  opts = {
+    linters_by_ft = {
       python = { "ruff" },
       lua = { "luacheck" },
       dockerfile = { "hadolint" },
@@ -30,7 +27,12 @@ return {
       java = { "checkstyle" },
       sql = { "sqlfluff" },
       markdown = { "markdownlint" },
-    }
+    },
+  },
+  config = function(_, opts)
+    local lint = require("lint")
+
+    lint.linters_by_ft = opts.linters_by_ft
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
@@ -38,6 +40,7 @@ return {
       group = lint_augroup,
       callback = function()
         lint.try_lint()
+        lint.try_lint("cspell") -- Ensure cspell is always run
       end,
     })
   end,

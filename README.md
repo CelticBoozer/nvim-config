@@ -9,4 +9,11 @@
 
 ## Deps
 
-npm, Java, luarocks, git, Nerd fonts, python3, deno
+npm -
+Java last version
+luarocks - lazy
+git - lazy,
+Nerd fonts - lazy, whichkey
+python3
+deno
+rg - lspsaga,
