@@ -1,38 +1,42 @@
--- INFO: LSP install tool
+-- INFO: LSP/DAP/linter/formatter package manager
+-- NOTE: Centralized dependency management for development tools
+
 return {
   "williamboman/mason.nvim",
   lazy = false,
   dependencies = {
-    "williamboman/mason-lspconfig.nvim", -- For LSP configuration
-    "WhoIsSethDaniel/mason-tool-installer.nvim", -- For linters and  formatters automatic installation
+    "williamboman/mason-lspconfig.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
-  config = function()
-    local mason = require("mason")
-    local mason_lspconfig = require("mason-lspconfig")
-    local mason_tool_installer = require("mason-tool-installer")
-
-    mason.setup({
-      ui = {
-        icons = {
-          package_installed = "✓",
-          package_pending = "➜",
-          package_uninstalled = "✗",
-        },
-        border = "rounded",
-        height = 0.8,
+  opts = {
+    ui = {
+      icons = {
+        package_installed = "✓",
+        package_pending = "➜",
+        package_uninstalled = "✗",
       },
-    })
+      border = "rounded",
+      height = 0.8,
+    },
+    -- Shared installation config
+    install_root_dir = vim.fn.stdpath("data") .. "/mason",
+    max_concurrent_installers = 4,
+  },
+  config = function(_, opts)
+    -- Setup Mason core
+    require("mason").setup(opts)
 
-    mason_lspconfig.setup({
+    -- Setup LSP config
+    require("mason-lspconfig").setup({
       ensure_installed = {
+        "pylsp",
         "lua_ls",
         "marksman",
         "dockerls",
-        "docker_compose_language_service",
         "bashls",
         "jsonls",
         "yamlls",
-        "taplo", -- TOML LSP
+        "taplo",
         "html",
         "cssls",
         "eslint",
@@ -40,17 +44,16 @@ return {
         "jdtls",
         "groovyls",
         "sqlls",
-        "lemminx", -- XML LSP
+        "lemminx",
       },
       automatic_installation = true,
     })
 
-    mason_tool_installer.setup({
+    -- Setup tools installer
+    require("mason-tool-installer").setup({
       ensure_installed = {
-        -- Linters
-        "ruff", -- Python linter
         "luacheck",
-        "hadolint", -- Docker linter
+        "hadolint",
         "shellcheck",
         "jsonlint",
         "yamllint",
@@ -59,10 +62,7 @@ return {
         "checkstyle",
         "sqlfluff",
         "markdownlint",
-        "cspell", -- spell check
-
-        -- Formatters
-        "ruff", -- Python formatter
+        "cspell",
         "stylua",
         "shfmt",
         "yamlfmt",
@@ -70,6 +70,9 @@ return {
         "google-java-format",
         "sql-formatter",
         "xmlformatter",
+        "firefox-debug-adapter",
+        "debugpy",
+        "bash-debug-adapter",
       },
     })
   end,

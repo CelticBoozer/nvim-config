@@ -1,29 +1,45 @@
--- INFO: better highlighting, creating file tree
+-- INFO: Advanced syntax parsing and highlighting
+-- NOTE: Provides better code understanding and manipulation
+
 return {
   "nvim-treesitter/nvim-treesitter",
-  lazy = true,
-  event = { "BufReadPre", "BufNewFile" },
+  event = "VeryLazy",
+  build = ":TSUpdate",
   opts = {
     ensure_installed = {
-      "lua",
-      "python",
-      "markdown_inline",
-      "dockerfile",
       "bash",
-      "json",
-      "yaml",
-      "toml",
-      "html",
       "css",
-      "javascript",
-      "typescript",
+      "dockerfile",
+      "html",
       "java",
-      "groovy",
+      "javascript",
+      "json",
+      "lua",
+      "markdown",
+      "python",
       "sql",
+      "toml",
+      "typescript",
+      "yaml",
     },
-    sync_install = false,
-    highlight = { enable = true },
-    indent = { enable = true },
-    build = ":TSUpdate",
+    auto_install = true,
+    highlight = {
+      additional_vim_regex_highlighting = false,
+    },
+    incremental_selection = {
+      enable = true,
+    },
+    textobjects = {
+      select = {
+        enable = true,
+        lookahead = true,
+        keymaps = {
+          ["af"] = "@function.outer",
+          ["if"] = "@function.inner",
+          ["ac"] = "@class.outer",
+          ["ic"] = "@class.inner",
+        },
+      },
+    },
   },
 }

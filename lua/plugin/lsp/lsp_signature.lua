@@ -1,14 +1,14 @@
--- NOTE: Show function signatures as you type for better LSP experience
+-- INFO: In-- INFO: Interactive function signature help during typing
+-- NOTE: Displays parameter information and documentation
 
 return {
   "ray-x/lsp_signature.nvim",
-  event = "VeryLazy",
+  event = "LspAttach",
+  dependencies = {
+    "neovim/nvim-lspconfig",
+  },
   opts = {
-    bind = true,
-    hint_enable = true,
-    floating_window = true,
-    handler_opts = {
-      border = "rounded",
-    },
+    hint_prefix = "󰛩 ", -- Custom hint indicator
+    extra_trigger_chars = { "(", ",", "<" }, -- Added angle bracket
   },
 }

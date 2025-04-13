@@ -1,16 +1,11 @@
--- NOTE: Provides linting support for various filetypes
+-- INFO: Asynchronous linting integration
+-- NOTE: Provides real-time code analysis for various languages
 
 return {
   "mfussenegger/nvim-lint",
-  event = { "BufReadPre", "BufNewFile" },
+  event = "VeryLazy",
   keys = {
-    {
-      "<leader>ll",
-      function()
-        require("lint").try_lint()
-      end,
-      desc = "Lint file",
-    },
+    { "<leader>ll", function() require("lint").try_lint() end, desc = "Lint file" },
   },
   opts = {
     linters_by_ft = {
@@ -20,28 +15,40 @@ return {
       sh = { "shellcheck" },
       json = { "jsonlint" },
       yaml = { "yamllint" },
+      javascript = { "eslint_d" },
       typescript = { "eslint_d" },
       javascriptreact = { "eslint_d" },
       typescriptreact = { "eslint_d" },
       css = { "stylelint" },
       java = { "checkstyle" },
       sql = { "sqlfluff" },
-      markdown = { "markdownlint" },
+      markdown = { "markdownlint", "cspell" },
+      text = { "cspell" }
     },
+    -- Custom linter configuration (only non-defaults)
+    linters = {
+      cspell = {
+        cmd = "cspell",
+        args = { "--no-color", "--no-progress", "--no-summary", "stdin" },
+        stream = "stdin",
+      }
+    }
   },
   config = function(_, opts)
     local lint = require("lint")
 
+    -- Configure linters
     lint.linters_by_ft = opts.linters_by_ft
+    for name, config in pairs(opts.linters or {}) do
+      lint.linters[name] = vim.tbl_deep_extend("force", lint.linters[name] or {}, config)
+    end
 
-    local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
-
-    vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
-      group = lint_augroup,
+    -- Setup automatic linting
+    vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave" }, {
       callback = function()
         lint.try_lint()
-        lint.try_lint("cspell") -- Ensure cspell is always run
       end,
+      group = vim.api.nvim_create_augroup("nvim-lint", { clear = true })
     })
-  end,
+  end
 }
