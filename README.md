@@ -17,3 +17,5 @@ Nerd fonts - lazy, whichkey
 python3
 deno
 rg - lspsaga,
+
+ueberzug (for media previews), docker-cli

@@ -1,18 +1,34 @@
--- INFO: comment/uncomment strings
+-- INFO: Smart comment toggling with context awareness
+-- NOTE: Supports language-specific comment styles
+
 return {
   "numToStr/Comment.nvim",
-  lazy = true,
-  event = { "BufReadPre", "BufNewFile" },
+  event = "VeryLazy",
   dependencies = {
-    "nvim-treesitter/nvim-treesitter", -- For calculating commentstring
-    "JoosepAlviste/nvim-ts-context-commentstring", -- Context commenting for example, Vue have many different sections
+    "nvim-treesitter/nvim-treesitter",
+    "JoosepAlviste/nvim-ts-context-commentstring",
   },
   config = function()
-    local comment = require("Comment")
-    local ts_context_commentstring = require("ts_context_commentstring.integrations.comment_nvim")
+    -- First ensure treesitter is initialized
+    require("nvim-treesitter.configs").setup({})
 
-    comment.setup({
-      pre_hook = ts_context_commentstring.create_pre_hook(),
+    -- Then setup context commentstring
+    require("ts_context_commentstring").setup({})
+
+    -- Finally configure Comment.nvim
+    require("Comment").setup({
+      pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+      toggler = {
+        line = "<leader>cc",
+        block = "<leader>bc",
+      },
+      opleader = {
+        line = "<leader>c",
+        block = "<leader>b",
+      },
+      extra = {
+        eol = "<leader>cA",
+      },
     })
   end,
 }

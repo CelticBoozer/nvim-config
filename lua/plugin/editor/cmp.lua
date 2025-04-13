@@ -1,64 +1,63 @@
--- INFO: completion engine
+-- INFO: .env file completions
+-- NOTE: Provides environment variable suggestions for .env files
+
 return {
   "hrsh7th/nvim-cmp",
-  lazy = true,
-  event = { "InsertEnter" },
+  event = "InsertEnter",
   dependencies = {
-    "neovim/nvim-lspconfig", -- LSP server support
-    "hrsh7th/cmp-nvim-lsp", -- LSP support for completion
-    "hrsh7th/cmp-buffer", -- nvim-cmp source for buffer words
-    "hrsh7th/cmp-path", -- nvim-cmp source for filesystem paths
-    "hrsh7th/cmp-cmdline", -- nvim-cmp source for vim's cmdline
-    "L3MON4D3/LuaSnip", -- Snippet support
-    "saadparwaiz1/cmp_luasnip", -- Snippet support
-    "onsails/lspkind.nvim", -- Plugin adds vscode-like pictograms to neovim built-in lsp
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-cmdline",
+    "L3MON4D3/LuaSnip",
+    "saadparwaiz1/cmp_luasnip",
+    "onsails/lspkind.nvim",
+    "windwp/nvim-autopairs",
+    "SergioRibera/cmp-dotenv", -- add dotenv plugin as dependency
   },
   config = function()
     local cmp = require("cmp")
-    local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-    cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+    require("nvim-autopairs").setup()
+    cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
 
     cmp.setup({
-      snippet = {
-        expand = function(args)
-          require("luasnip").lsp_expand(args.body)
-        end,
-      },
-      window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
-      },
-      mapping = cmp.mapping.preset.insert({
+      mapping = {
+        ["<Tab>"] = cmp.mapping.select_next_item(),
+        ["<S-Tab>"] = cmp.mapping.select_prev_item(),
         ["<C-Space>"] = cmp.mapping.complete(),
-        ["<C-e>"] = cmp.mapping.abort(),
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
-        ["<Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item()
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-      }),
-      sources = cmp.config.sources({
+      },
+      sources = {
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "buffer" },
-        { name = "nvim_lsp_signature_help" },
-      }),
+        -- You can comment out the global dotenv source if you want it only in .env files:
+        { name = "dotenv" },
+      },
       formatting = {
         format = require("lspkind").cmp_format({
           maxwidth = 50,
           ellipsis_char = "...",
         }),
       },
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+      },
+      experimental = {
+        ghost_text = {
+          hl_group = "Comment",
+        },
+      },
     })
+
+    -- Optional: if you want dotenv completions only for .env files, you can remove it from the
+    -- global sources list above and add it here:
+    --
+    -- cmp.setup.filetype("env", {
+    --   sources = {
+    --     { name = "dotenv" },
+    --   },
+    -- })
   end,
 }

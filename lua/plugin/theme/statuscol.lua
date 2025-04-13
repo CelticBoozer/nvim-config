@@ -1,25 +1,31 @@
--- INFO: clickable status colomun, for ufo plugin
+-- INFO: Interactive status column with fold indicators
+-- NOTE: Provides clickable line numbers and fold markers
+
 return {
   "luukvbaal/statuscol.nvim",
-  lazy = true,
-  config = function()
-    local builtin = require("statuscol.builtin")
-    require("statuscol").setup({
-      relculright = true,
-      segments = {
-        {
-          text = { builtin.foldfunc },
-          click = "v:lua.ScFa",
-        },
-        {
-          text = { "%s" },
-          click = "v:lua.ScSa",
-        },
-        {
-          text = { builtin.lnumfunc, " " },
-          click = "v:lua.ScLa",
-        },
+  event = "VeryLazy",
+  dependencies = { "kevinhwang91/nvim-ufo" },
+  opts = {
+    setopt = true,
+    relculright = true,
+    segments = {
+      {
+        text = { "%C" },
+        click = "v:lua.ScFa",
+        condition = { true },
+        hl = "FoldColumn",
       },
-    })
-  end,
+      {
+        text = { "%s" },
+        click = "v:lua.ScSa",
+        hl = "SignColumn",
+      },
+      {
+        text = { " ", "", " " },
+        click = "v:lua.ScLa",
+        hl = { "LineNr", "Comment" },
+        condition = { true },
+      },
+    },
+  },
 }

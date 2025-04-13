@@ -1,76 +1,81 @@
--- INFO: statusline with useful info
+-- INFO: Customizable status line with real-time diagnostics
+-- NOTE: Provides contextual information and mode awareness
+
 return {
   "nvim-lualine/lualine.nvim",
-  lazy = false,
+  event = "VeryLazy",
   dependencies = {
-    "nvim-tree/nvim-web-devicons", -- Just pretty icons
+    "nvim-tree/nvim-web-devicons",
+    {
+      "linrongbin16/lsp-progress.nvim",
+      opts = {
+        client_format = function(client_name, spinner, series_messages)
+          local sign = " "
+          return #series_messages > 0 and (sign .. client_name .. " " .. table.concat(series_messages, " ")) or ""
+        end,
+      },
+    },
   },
   opts = {
     options = {
       theme = "gruvbox-material",
       globalstatus = true,
+      component_separators = { left = "", right = "" },
+      section_separators = { left = "", right = "" },
+      disabled_filetypes = { "alpha", "dashboard" },
     },
     sections = {
+      lualine_a = { "mode" },
       lualine_b = {
         "branch",
-        {
-          "diff",
-          colored = true,
-          symbols = { added = "+", modified = "~", removed = "-" },
-          source = nil,
-        },
+        "diff",
         {
           "diagnostics",
-          sources = {
-            "nvim_diagnostic",
-            "nvim_lsp",
-          },
-          sections = {
-            "error",
-            "warn",
-            "info",
-            "hint",
-          },
           symbols = {
             error = " ",
             warn = " ",
             info = " ",
             hint = " ",
           },
-          colored = true,
-          update_in_insert = true,
-          always_visible = false,
         },
       },
       lualine_c = {
         {
           "filename",
-          file_status = true,
-          newfile_status = false,
-          path = 0,
-          shorting_target = 40,
+          path = 1,
           symbols = {
-            modified = "[+]",
-            readonly = "[RO]",
-            unnamed = "[No Name]",
-            newfile = "[New]",
+            modified = "● ",
+            readonly = " ",
+            unnamed = " ",
           },
+        },
+        {
+          function()
+            return require("lsp-progress").progress()
+          end,
         },
       },
       lualine_x = {
         {
           "searchcount",
           maxcount = 999,
-          timeout = 10,
         },
         "encoding",
-        {
-          "filetype",
-          colored = true,
-          icon_only = false,
-          icon = { align = "left" },
-        },
+        "fileformat",
       },
+      lualine_y = { "progress" },
+      lualine_z = { "location" },
     },
+    extensions = { "neo-tree", "lazy" },
   },
+  config = function(_, opts)
+    require("lualine").setup(opts)
+
+    vim.api.nvim_create_augroup("lualine_augroup", { clear = true })
+    vim.api.nvim_create_autocmd("User", {
+      group = "lualine_augroup",
+      pattern = "LspProgressStatusUpdated",
+      callback = require("lualine").refresh,
+    })
+  end,
 }

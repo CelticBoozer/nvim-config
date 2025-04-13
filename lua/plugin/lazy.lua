@@ -1,4 +1,6 @@
--- INFO: Plugin manager
+-- INFO: Plugin manager for Neovim
+-- NOTE: Essential foundation for plugin management. Handles installation, updates, and lazy loading.
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -32,6 +34,6 @@ require("lazy").setup({
   },
   checker = { enabled = true },
   dev = { path = "~/Development/Projects" },
-  install = { colorscheme = { "gruvbox-materal" } },
+  install = { colorscheme = { "gruvbox-material" } },
   ui = { border = "rounded" },
 })

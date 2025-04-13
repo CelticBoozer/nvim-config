@@ -1,4 +1,6 @@
--- INFO: formatter
+-- INFO: Unified file formatting interface
+-- NOTE: Handles code formatting through LSP and external tools
+
 return {
   "stevearc/conform.nvim",
   lazy = false,
@@ -14,16 +16,21 @@ return {
         })
       end,
       desc = "Format file",
+      mode = { "n", "v" },
     },
   },
   opts = {
+    format_on_save = {
+      timeout_ms = 1000,
+      lsp_fallback = true,
+    },
     formatters_by_ft = {
       python = { "ruff" },
       lua = { "stylua" },
       markdown = { "markdownlint" },
       sh = { "shfmt" },
-      json = { "prettier" },
-      yaml = { "yamlfmt" },
+      json = { "jsonlint" },
+      yaml = { "yamllint" },
       html = { "prettier" },
       css = { "prettier" },
       javascript = { "prettier" },
@@ -37,6 +44,16 @@ return {
       xml = { "xmlformatter" },
       ["*"] = { "codespell" },
       ["_"] = { "trim_whitespace" },
+    },
+    formatters = {
+      codespell = {
+        command = "codespell",
+        args = { "--write-changes", "$FILENAME" },
+      },
+      trim_whitespace = {
+        command = "sed",
+        args = { "-i", "s/[[:space:]]*$//" },
+      },
     },
   },
 }

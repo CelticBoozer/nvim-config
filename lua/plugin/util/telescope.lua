@@ -1,34 +1,41 @@
--- INFO: cool finder|previewer
+-- INFO: Fuzzy finder with advanced preview capabilities.
+-- NOTE: Unified interface for file navigation and system exploration.
+
 return {
   "nvim-telescope/telescope.nvim",
-  lazy = true,
+  cmd = "Telescope",
   dependencies = {
-    "nvim-lua/plenary.nvim", -- Async support
-    "nvim-lua/popup.nvim", -- Popup support
-    "debugloop/telescope-undo.nvim", -- Custom module, to preview undos
-    "nvim-telescope/telescope-media-files.nvim", -- Custom module, to preview images
-    "lpoto/telescope-docker.nvim", --  Custom module, docker support
-  },
-  keys = {
-    { "<leader>ff", ":Telescope find_files<CR>", desc = "find files" },
-    { "<leader>fg", ":Telescope live_grep<CR>", desc = "grep files" },
-    { "<leader>fm", ":Telescope media_files<CR>", desc = "find media" },
-    { "<leader>fd", ":Telescope docker<CR>", desc = "navigate docker" },
-    { "<leader>fu", ":Telescope undo<CR>", desc = "navigate undos" },
+    "nvim-lua/plenary.nvim",
+    "debugloop/telescope-undo.nvim",
+    "nvim-telescope/telescope-media-files.nvim",
+    "lpoto/telescope-docker.nvim",
   },
   opts = {
     defaults = {
       mappings = {
         i = {
-          ["<C-h>"] = "which_key",
-          ["<C-s>"] = "select_vertical",
-          ["<C-x>"] = "select_horizontal",
+          ["<C-h>"] = require("telescope.actions").which_key,
+          ["<C-s>"] = require("telescope.actions").select_vertical,
+          ["<C-x>"] = require("telescope.actions").select_horizontal,
         },
         n = {
-          ["s"] = "select_vertical",
-          ["S"] = "select_horizontal",
-          ["t"] = "select_tab",
+          s = require("telescope.actions").select_vertical,
+          S = require("telescope.actions").select_horizontal,
+          t = require("telescope.actions").select_tab,
         },
+      },
+      layout_strategy = "horizontal",
+      layout_config = {
+        preview_width = 0.6,
+        width = 0.95,
+        height = 0.85,
+      },
+      file_ignore_patterns = {
+        "node_modules",
+        ".git",
+        ".cache",
+        "%.jpg",
+        "%.png",
       },
     },
     extensions = {
@@ -36,8 +43,13 @@ return {
         filetypes = { "png", "webp", "jpg", "jpeg", "pdf" },
         find_cmd = "rg",
       },
-      docker = {},
-      undo = {},
+      docker = {
+        hidden = false,
+      },
+      undo = {
+        use_delta = true,
+        side_by_side = true,
+      },
     },
   },
 }

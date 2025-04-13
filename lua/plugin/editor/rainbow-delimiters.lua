@@ -1,7 +1,8 @@
--- INFO: colorize bracket, tags and other delimiters
+-- INFO: Syntax-aware delimiter highlighting
+-- NOTE: Context-aware bracket/quote colorization
 return {
   "hiphish/rainbow-delimiters.nvim",
-  lazy = false,
+  event = "VeryLazy",
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
   },
