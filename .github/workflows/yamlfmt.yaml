@@ -1,11 +1,20 @@
 ---
-name: "yamlfmt"
+name: yamlfmt
 # yamllint disable-line rule:truthy
 on:
-  - pull_request
+  push:
+    branches:
+      - master
+    paths:
+      - '**/*.yaml'
+  pull_request:
+    branches:
+      - master
+    paths:
+      - '**/*.yaml'
 jobs:
   format_check:
-    name: Run yamlfmt
+    name: Check yaml with yamlfmt
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository

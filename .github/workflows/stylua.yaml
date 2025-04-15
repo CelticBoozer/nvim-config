@@ -2,7 +2,16 @@
 name: "StyLua"
 # yamllint disable-line rule:truthy
 on:
-  - pull_request
+  push:
+    branches:
+      - master
+    paths:
+      - '**/*.lua'
+  pull_request:
+    branches:
+      - master
+    paths:
+      - '**/*.lua'
 jobs:
   format_check:
     name: Run stylua
