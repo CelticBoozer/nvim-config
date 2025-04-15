@@ -1,4 +1,3 @@
--- lucheck: globals require
 -- INFO: Search Plugin to enable a tabbed search interface using Telescope.
 -- NOTE: This plugin allows switching between different search modes.
 
@@ -11,7 +10,7 @@ return {
   },
   keys = {
     {
-      "<leader>fs",
+      "<leader>ff",
       "<cmd>lua require('search').open()<CR>",
       desc = "Open Search Tabs",
     },

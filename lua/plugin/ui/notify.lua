@@ -2,21 +2,10 @@
 -- NOTE: Replaces default notifications with a configurable, animated notification popup.
 
 return {
-  -- 1. Plugin address.
   "rcarriga/nvim-notify",
-
-  -- 2. lazy: load immediately (or adjust as needed).
   lazy = false,
-
-  -- 3. (No event required for this plugin)
-
-  -- 4. Dependencies: none.
   dependencies = {},
-
-  -- 5. Keys: (this plugin does not define key mappings by default).
   keys = {},
-
-  -- 6. opts: Configuration options for nvim-notify.
   opts = {
     stages = "fade_in_slide_out",
     timeout = 3000,
@@ -27,7 +16,7 @@ return {
       return math.floor(vim.o.columns * 0.75)
     end,
     top_down = true,
-    background_colour = "#1e222a",
+    background_colour = "#252423",
   },
 
   config = function(_, opts)

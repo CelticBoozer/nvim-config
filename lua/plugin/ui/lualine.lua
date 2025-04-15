@@ -11,7 +11,9 @@ return {
       opts = {
         client_format = function(client_name, spinner, series_messages)
           local sign = " "
-          return #series_messages > 0 and (sign .. client_name .. " " .. table.concat(series_messages, " ")) or ""
+          return #series_messages > 0
+              and (string.format("%s%s %s %s", sign, spinner, client_name, table.concat(series_messages, " ")))
+            or ""
         end,
       },
     },

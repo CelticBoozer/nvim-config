@@ -5,7 +5,13 @@ return {
   "mfussenegger/nvim-lint",
   event = "VeryLazy",
   keys = {
-    { "<leader>ll", function() require("lint").try_lint() end, desc = "Lint file" },
+    {
+      "<leader>ll",
+      function()
+        require("lint").try_lint()
+      end,
+      desc = "Lint file",
+    },
   },
   opts = {
     linters_by_ft = {
@@ -23,16 +29,8 @@ return {
       java = { "checkstyle" },
       sql = { "sqlfluff" },
       markdown = { "markdownlint", "cspell" },
-      text = { "cspell" }
+      ["*"] = { "cspell" },
     },
-    -- Custom linter configuration (only non-defaults)
-    linters = {
-      cspell = {
-        cmd = "cspell",
-        args = { "--no-color", "--no-progress", "--no-summary", "stdin" },
-        stream = "stdin",
-      }
-    }
   },
   config = function(_, opts)
     local lint = require("lint")
@@ -48,7 +46,7 @@ return {
       callback = function()
         lint.try_lint()
       end,
-      group = vim.api.nvim_create_augroup("nvim-lint", { clear = true })
+      group = vim.api.nvim_create_augroup("nvim-lint", { clear = true }),
     })
-  end
+  end,
 }

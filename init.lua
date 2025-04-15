@@ -2,7 +2,7 @@
 require("core.options")
 
 -- Bootstrap and setup lazy.nvim through its own plugin spec
-require("plugin.lazy")
+require("core.lazy")
 
 -- Safe telescope extension loading
 vim.api.nvim_create_autocmd("User", {

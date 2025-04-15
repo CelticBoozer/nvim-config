@@ -1,10 +1,5 @@
 -- INFO: Interactive LSP rename with live preview
 -- NOTE: Provides real-time renaming previews
--- Dependencies:
--- - 'stevearc/dressing.nvim': Improved UI components
-
--- luacheck: globals vim
--- luacheck: ignore 113
 
 return {
   "smjonas/inc-rename.nvim",
