@@ -1,11 +1,12 @@
 # Neovim configuration
 
-![StyLua](https://github.com/CelticBoozer/nvim-config/actions/workflows/stylua.yaml/badge.svg?branch=master)
-![luacheck](https://github.com/CelticBoozer/nvim-config/actions/workflows/luacheck.yaml/badge.svg?branch=master)
-![yamlfmt](https://github.com/CelticBoozer/nvim-config/actions/workflows/yamlfmt.yaml/badge.svg?branch=master)
-![yamllint](https://github.com/CelticBoozer/nvim-config/actions/workflows/yamllint.yaml/badge.svg?branch=master)
-![check_commit](https://github.com/CelticBoozer/nvim-config/actions/workflows/check_commit.yaml/badge.svg?branch=master)
-![markdownlint](https://github.com/CelticBoozer/nvim-config/actions/workflows/markdownlint.yaml/badge.svg?branch=master)
+![commitlint](https://img.shields.io/github/actions/workflow/status/CelticBoozer/nvim-config/commitlint.yaml?branch=master&label=commitlint)
+![StyLua](https://img.shields.io/github/actions/workflow/status/CelticBoozer/nvim-config/stylua.yaml?branch=master&label=StyLua)
+![luacheck](https://img.shields.io/github/actions/workflow/status/CelticBoozer/nvim-config/luacheck.yaml?branch=master&label=luacheck)
+![yamllint](https://img.shields.io/github/actions/workflow/status/CelticBoozer/nvim-config/yamllint.yaml?branch=master&label=yamllint)
+![yamlfmt](https://img.shields.io/github/actions/workflow/status/CelticBoozer/nvim-config/yamlfmt.yaml?branch=master&label=yamlfmt)
+![markdownlint](https://img.shields.io/github/actions/workflow/status/CelticBoozer/nvim-config/markdownlint.yaml?branch=master&label=markdownlint)
+![cspell](https://img.shields.io/github/actions/workflow/status/CelticBoozer/nvim-config/cspell.yaml?branch=master&label=cspell)
 
 ## External dependencies
 

@@ -1,2 +1,6 @@
 nvim
 Styleguides
+luacheck
+yamlfmt
+neogit
+luarocks
