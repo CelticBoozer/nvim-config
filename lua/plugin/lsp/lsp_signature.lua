@@ -1,4 +1,4 @@
--- INFO: In-- INFO: Interactive function signature help during typing
+-- INFO: Interactive function signature help during typing
 -- NOTE: Displays parameter information and documentation
 
 return {

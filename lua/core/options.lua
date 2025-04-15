@@ -45,6 +45,4 @@ o.background = "dark"
 
 vim.diagnostic.config({
   severity_sort = true, -- Sort all diagnostics by severity
-  -- Optional: Reverse sort order (highest first is default)
-  severity_sort = { reverse = false },
 })

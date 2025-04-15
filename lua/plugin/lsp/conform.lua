@@ -29,8 +29,8 @@ return {
       lua = { "stylua" },
       markdown = { "markdownlint" },
       sh = { "shfmt" },
-      json = { "jsonlint" },
-      yaml = { "yamllint" },
+      json = { "prettier" },
+      yaml = { "yamlfmt" },
       html = { "prettier" },
       css = { "prettier" },
       javascript = { "prettier" },
@@ -42,14 +42,9 @@ return {
       graphql = { "prettier" },
       sql = { "sqlfluff" },
       xml = { "xmlformatter" },
-      ["*"] = { "codespell" },
       ["_"] = { "trim_whitespace" },
     },
     formatters = {
-      codespell = {
-        command = "codespell",
-        args = { "--write-changes", "$FILENAME" },
-      },
       trim_whitespace = {
         command = "sed",
         args = { "-i", "s/[[:space:]]*$//" },
