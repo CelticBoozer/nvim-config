@@ -1,5 +1,5 @@
 ---
-name: markdownlint
+name: Check mds for broken links
 # yamllint disable-line rule:truthy
 on:
   push:
@@ -13,14 +13,13 @@ on:
     paths:
       - '**/*.md'
 jobs:
-  lint:
-    name: Check markdown with markdownlint
+  broken_link_check:
+    name: Check orphan links
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Run markdownlint
-        uses: nosborn/github-action-markdown-cli@v3.3.0
+      - name: Run Link Checker
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
-          files: .
-          dot: true
+          use-quiet-mode: true
