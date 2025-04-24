@@ -26,7 +26,6 @@ return {
       },
       layout_strategy = "horizontal",
       layout_config = {
-        preview_width = 0.6,
         width = 0.95,
         height = 0.85,
       },

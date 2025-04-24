@@ -1,9 +1,9 @@
 -- INFO: Keybinding discovery and documentation
 -- NOTE: Provides visual hints for leader key mappings
--- luacheck: globals vim
 
 return {
   "folke/which-key.nvim",
+  lazy = false,
   keys = {
     {
       "<leader><leader>",
@@ -35,11 +35,11 @@ return {
     wk.register({
       ["<leader>"] = {
         f = { name = "Find" },
+        t = { name = "Tool panels" },
         d = { name = "Debug" },
-        g = { name = "Git" },
-        l = { name = "LSP" },
-        s = { name = "Search" },
-        w = { name = "Workspace" },
+        s = { name = "Session" },
+        c = { name = "Comment" },
+        r = { name = "Refactor" },
       },
     })
   end,

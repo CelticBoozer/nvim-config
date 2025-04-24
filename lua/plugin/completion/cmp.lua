@@ -13,7 +13,7 @@ return {
     "saadparwaiz1/cmp_luasnip",
     "onsails/lspkind.nvim",
     "windwp/nvim-autopairs",
-    "SergioRibera/cmp-dotenv", -- add dotenv plugin as dependency
+    "SergioRibera/cmp-dotenv",
   },
   config = function()
     local cmp = require("cmp")
@@ -33,6 +33,7 @@ return {
         { name = "buffer" },
         -- You can comment out the global dotenv source if you want it only in .env files:
         { name = "dotenv" },
+        { name = "supermaven" },
       },
       formatting = {
         format = require("lspkind").cmp_format({

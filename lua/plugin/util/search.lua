@@ -44,6 +44,12 @@ return {
         end,
       },
       {
+        name = "Projects",
+        tele_func = function()
+          require("telescope").extensions.projects.projects()
+        end,
+      },
+      {
         name = "Docker",
         tele_func = function()
           require("telescope").extensions.docker.docker()

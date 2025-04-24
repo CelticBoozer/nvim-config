@@ -4,15 +4,6 @@
 return {
   "mfussenegger/nvim-lint",
   event = "VeryLazy",
-  keys = {
-    {
-      "<leader>ll",
-      function()
-        require("lint").try_lint()
-      end,
-      desc = "Lint file",
-    },
-  },
   opts = {
     linters_by_ft = {
       python = { "ruff" },

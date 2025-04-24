@@ -39,21 +39,21 @@ return {
       desc = "Step Out",
     },
     {
-      "<Leader>b",
+      "<Leader>dB",
       function()
         require("dap").toggle_breakpoint()
       end,
       desc = "Toggle Breakpoint",
     },
     {
-      "<Leader>B",
+      "<Leader>db",
       function()
         require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
       end,
       desc = "Set Conditional Breakpoint",
     },
     {
-      "<Leader>lp",
+      "<Leader>dp",
       function()
         require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
       end,

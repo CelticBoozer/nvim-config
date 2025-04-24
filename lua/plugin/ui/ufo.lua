@@ -49,10 +49,20 @@ return {
     end,
   },
   config = function(_, opts)
+    -- Workaround for auto-session conflict:
+    vim.api.nvim_create_autocmd("BufReadPost", {
+      callback = function()
+        if not pcall(require, "ufo") then
+          vim.notify("nvim-ufo failed to load", vim.log.levels.WARN)
+          return
+        end
+        require("ufo").setup(opts)
+      end,
+    })
+
     -- Configure LSP folding capabilities
-    -- UFO folding
-    vim.o.foldcolumn = "1" -- '0' is not bad
-    vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+    vim.o.foldcolumn = "1"
+    vim.o.foldlevel = 99
     vim.o.foldlevelstart = 99
     vim.o.foldenable = true
     vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
@@ -60,15 +70,12 @@ return {
     -- Link custom highlight group
     vim.api.nvim_set_hl(0, "UfoFoldedEllipsis", { link = "Comment" })
 
-    -- Initialize UFO with merged options
-    require("ufo").setup(opts)
-
     -- Key mappings for folding
     vim.keymap.set("n", "zE", require("ufo").openAllFolds)
     vim.keymap.set("n", "zC", require("ufo").closeAllFolds)
     vim.keymap.set("n", "ze", require("ufo").openFoldsExceptKinds)
     vim.keymap.set("n", "zc", function()
-      require("ufo").closeFoldsWith(1) -- Close only immediate fold
+      require("ufo").closeFoldsWith(1)
     end, { desc = "Close current fold" })
   end,
 }

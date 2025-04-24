@@ -22,13 +22,6 @@ return {
       desc = "Evaluate expression",
       mode = { "n", "v" },
     },
-    {
-      "<leader>db",
-      function()
-        require("dap").toggle_breakpoint()
-      end,
-      desc = "Toggle breakpoint",
-    },
   },
   opts = {
     icons = {

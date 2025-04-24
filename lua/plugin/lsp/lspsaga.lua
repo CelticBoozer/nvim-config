@@ -25,7 +25,7 @@ return {
       mode = "n",
     },
     { "<leader>?", "<cmd>Lspsaga hover_doc<CR>", desc = "Hover documentation", mode = "n" },
-    { "<leader>to", "<cmd>Lspsaga outline<CR>", desc = "Symbols outline", mode = "n" },
+    { "<leader>to", "<cmd>Lspsaga outline<CR>", desc = "Outline", mode = "n" },
   },
   opts = {
     ui = {

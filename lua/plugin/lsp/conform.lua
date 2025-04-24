@@ -7,7 +7,7 @@ return {
   event = { "BufReadPre", "BufNewFile", "BufWrite" },
   keys = {
     {
-      "<leader>lf",
+      "<leader>rf",
       function()
         require("conform").format({
           lsp_fallback = true,
