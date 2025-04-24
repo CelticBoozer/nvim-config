@@ -3,7 +3,7 @@
 -- luacheck:ignore 111
 
 std = {
-  globals = { "vim", "require", "strategy", "query", "globals", "math" }, -- these globals can be set and accessed.
+  globals = { "vim", "require", "strategy", "query", "globals", "math" },
 }
 codes = true
 ranges = true
