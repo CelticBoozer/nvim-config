@@ -2,28 +2,39 @@
 # https://github.com/adrienverge/yamllint config file.
 # Simply copy this file to the root of the project.
 extends: default
+
 rules:
   anchors:
     forbid-duplicated-anchors: true
+
   braces:
     min-spaces-inside-empty: 0
     max-spaces-inside-empty: 0
+
   brackets:
     min-spaces-inside-empty: 0
     max-spaces-inside-empty: 0
+
   comments-indentation: enable
+
   document-start:
     present: true
+
   float-values:
     require-numeral-before-decimal: true
+
   indentation:
     spaces: 2
+
   key-duplicates:
     forbid-duplicated-merge-keys: true
+
   line-length:
     allow-non-breakable-words: true
     allow-non-breakable-inline-mappings: true
     max: 100
-    level: warning
+
+  level: warning
+
   new-lines:
     type: unix

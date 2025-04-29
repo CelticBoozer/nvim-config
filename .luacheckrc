@@ -5,5 +5,6 @@
 std = {
   globals = { "vim", "require", "strategy", "query", "globals", "math" },
 }
+
 codes = true
 ranges = true

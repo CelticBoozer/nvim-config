@@ -1,5 +1,5 @@
 -- INFO: LSP/DAP/linter/formatter package manager
--- NOTE: Centralized dependency management for development tools
+-- NOTE: Centralized dependency management for development tools.
 
 return {
   "williamboman/mason.nvim",
@@ -23,10 +23,10 @@ return {
     max_concurrent_installers = 4,
   },
   config = function(_, opts)
-    -- Setup Mason core
+    -- Setup Mason core with UI and installation settings
     require("mason").setup(opts)
 
-    -- Setup LSP config
+    -- Configure Mason LSPconfig to ensure necessary LSP servers are installed automatically
     require("mason-lspconfig").setup({
       ensure_installed = {
         "pylsp",
@@ -49,20 +49,23 @@ return {
       automatic_installation = true,
     })
 
-    -- Setup tools installer
+    -- Configure Mason Tool Installer to manage external development tools
     require("mason-tool-installer").setup({
       ensure_installed = {
-        "luacheck",
-        "hadolint",
-        "shellcheck",
-        "jsonlint",
-        "yamllint",
-        "eslint_d",
-        "stylelint",
+        -- Linters
+        "ruff",
         "checkstyle",
-        "sqlfluff",
-        "markdownlint",
         "cspell",
+        "eslint_d",
+        "hadolint",
+        "jsonlint",
+        "luacheck",
+        "markdownlint",
+        "shellcheck",
+        "sqlfluff",
+        "stylelint",
+        "yamllint",
+        -- Formatters
         "stylua",
         "shfmt",
         "yamlfmt",
@@ -70,6 +73,7 @@ return {
         "google-java-format",
         "sql-formatter",
         "xmlformatter",
+        -- DAP Tools
         "firefox-debug-adapter",
         "debugpy",
         "bash-debug-adapter",

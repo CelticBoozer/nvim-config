@@ -1,5 +1,5 @@
 -- INFO: Visual indentation guides (v3+)
--- NOTE: Modern indentation visualization with treesitter
+-- NOTE: Modern indentation visualization with treesitter.
 
 return {
   "lukas-reineke/indent-blankline.nvim",

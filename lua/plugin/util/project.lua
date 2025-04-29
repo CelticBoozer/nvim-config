@@ -1,3 +1,6 @@
+-- INFO: Project management with telescope
+-- NOTE: Provides project detection and management
+
 return {
   "ahmedkhalf/project.nvim",
   event = "VimEnter",

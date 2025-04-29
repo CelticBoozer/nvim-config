@@ -1,10 +1,12 @@
 -- INFO: SQL language support via LSP
--- NOTE: Requires Neovim 0.10+ and the sqls language server
+-- NOTE: Requires Neovim 0.10+ and the sqls language server.
 
 return {
   "nanotee/sqls.nvim",
   ft = { "sql" },
-  dependencies = { "neovim/nvim-lspconfig" },
+  dependencies = {
+    "neovim/nvim-lspconfig",
+  },
   config = function()
     local lspconfig = require("lspconfig")
     local sqls = require("sqls")

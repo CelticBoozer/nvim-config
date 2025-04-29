@@ -1,5 +1,5 @@
--- INFO: Configures nvim-dap
--- NOTE: 'mfussenegger/nvim-dap' provides the core Debug Adapter Protocol client for Neovim
+-- INFO: Configures nvim-dap with IntelliJ IDEA-like key mappings.
+-- NOTE: 'mfussenegger/nvim-dap' provides the core Debug Adapter Protocol client for Neovim.
 
 return {
   "mfussenegger/nvim-dap",
@@ -11,63 +11,50 @@ return {
   },
   keys = {
     {
-      "<F5>",
+      "<F9>",
       function()
         require("dap").continue()
       end,
       desc = "Start/Continue Debugging",
     },
     {
-      "<F10>",
+      "<F8>",
       function()
         require("dap").step_over()
       end,
       desc = "Step Over",
     },
     {
-      "<F11>",
+      "<F7>",
       function()
         require("dap").step_into()
       end,
       desc = "Step Into",
     },
     {
-      "<F12>",
+      "<S-F8>",
       function()
         require("dap").step_out()
       end,
       desc = "Step Out",
     },
     {
-      "<Leader>dB",
+      "<C-F8>",
       function()
         require("dap").toggle_breakpoint()
       end,
       desc = "Toggle Breakpoint",
     },
     {
-      "<Leader>db",
+      "<A-F8>",
       function()
-        require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+        require("dap").eval()
       end,
-      desc = "Set Conditional Breakpoint",
+      desc = "Evaluate Expression",
+      mode = { "n", "v" },
     },
     {
-      "<Leader>dp",
-      function()
-        require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
-      end,
-      desc = "Set Log Point",
-    },
-    {
-      "<Leader>dr",
-      function()
-        require("dap").repl.open()
-      end,
-      desc = "Open REPL",
-    },
-    {
-      "<Leader>dl",
+      "<A-F9>",
       function()
         require("dap").run_last()
       end,

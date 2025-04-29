@@ -1,5 +1,5 @@
 -- INFO: Debug Adapter Protocol UI with interactive elements
--- NOTE: Provides visual debugging interface with variable inspection and REPL
+-- NOTE: Provides visual debugging interface with variable inspection and REPL.
 
 return {
   "rcarriga/nvim-dap-ui",
@@ -41,10 +41,7 @@ return {
         position = "left",
       },
       {
-        elements = {
-          "repl",
-          "console",
-        },
+        elements = { "repl", "console" },
         size = 0.25,
         position = "bottom",
       },

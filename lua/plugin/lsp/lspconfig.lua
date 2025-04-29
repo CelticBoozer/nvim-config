@@ -1,5 +1,5 @@
 -- INFO: Core LSP configuration and integrations
--- NOTE: Provides language-aware features and server management
+-- NOTE: Provides language-aware features and server management.
 
 return {
   "neovim/nvim-lspconfig",
@@ -10,12 +10,12 @@ return {
   },
   opts = {
     capabilities = function()
-      local caps = require("cmp_nvim_lsp").default_capabilities()
-      caps.textDocument.foldingRange = {
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      capabilities.textDocument.foldingRange = {
         dynamicRegistration = false,
         lineFoldingOnly = true,
       }
-      return caps
+      return capabilities
     end,
 
     signs = {
@@ -53,20 +53,20 @@ return {
     },
   },
   config = function(_, opts)
-    -- Configure diagnostic signs
+    -- INFO: Configure diagnostic signs using the specified icons.
     for type, icon in pairs(opts.signs) do
       local hl = "DiagnosticSign" .. type
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
     end
 
-    -- Configure LSP servers
+    -- INFO: Configure LSP servers with capabilities and custom settings.
     local lspconfig = require("lspconfig")
     local capabilities = opts.capabilities()
 
-    for server, config in pairs(opts.servers) do
+    for server, server_opts in pairs(opts.servers) do
       lspconfig[server].setup(vim.tbl_deep_extend("force", {
         capabilities = capabilities,
-      }, config))
+      }, server_opts))
     end
   end,
 }

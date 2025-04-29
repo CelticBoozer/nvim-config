@@ -1,5 +1,5 @@
 -- INFO: Interactive function signature help during typing
--- NOTE: Displays parameter information and documentation
+-- NOTE: Displays parameter information and documentation.
 
 return {
   "ray-x/lsp_signature.nvim",
@@ -8,7 +8,7 @@ return {
     "neovim/nvim-lspconfig",
   },
   opts = {
-    hint_prefix = "󰛩 ", -- Custom hint indicator
-    extra_trigger_chars = { "(", ",", "<" }, -- Added angle bracket
+    hint_prefix = "󰛩 ",
+    extra_trigger_chars = { "(", ",", "<" },
   },
 }
