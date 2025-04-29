@@ -10,3 +10,4 @@ devicons
 lazygit
 Gruvbox
 Quickkey
+lspconfig
