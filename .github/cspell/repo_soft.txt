@@ -4,3 +4,10 @@ luacheck
 yamlfmt
 neogit
 luarocks
+Luasnip
+lualine
+devicons
+lazygit
+Gruvbox
+Quickkey
+lspconfig

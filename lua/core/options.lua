@@ -1,6 +1,8 @@
+-- INFO: Editor and UI settings for Neovim
+-- NOTE: Configure line numbers, indentation, splits, and more.
 local o = vim.opt
 
--- Set lines enable
+-- Set line numbering
 o.number = true
 o.relativenumber = true
 
@@ -13,10 +15,10 @@ o.smartindent = true
 -- Save changes automatically
 o.autowriteall = true
 
--- Enable cursor higlighting
+-- Enable cursor highlighting
 o.cursorline = true
 
--- Search ingroing case
+-- Search ignoring case
 o.ignorecase = true
 
 -- Split rules

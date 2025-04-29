@@ -1,5 +1,5 @@
 -- INFO: Unified file formatting interface
--- NOTE: Handles code formatting through LSP and external tools
+-- NOTE: Handles code formatting through LSP and external tools.
 
 return {
   "stevearc/conform.nvim",
@@ -7,7 +7,7 @@ return {
   event = { "BufReadPre", "BufNewFile", "BufWrite" },
   keys = {
     {
-      "<leader>lf",
+      "<leader>rf",
       function()
         require("conform").format({
           lsp_fallback = true,

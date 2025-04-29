@@ -1,5 +1,5 @@
 -- INFO: Interactive LSP rename with live preview
--- NOTE: Provides real-time renaming previews
+-- NOTE: Provides real-time renaming previews.
 
 return {
   "smjonas/inc-rename.nvim",

@@ -1,5 +1,5 @@
--- INFO: .env file completions
--- NOTE: Provides environment variable suggestions for .env files
+-- INFO: Autocompletion configuration using nvim-cmp with integrations for LSP, snippets, and other completion sources.
+-- NOTE: This configuration integrates nvim-autopairs, custom formatting, and provides experimental ghost text.
 
 return {
   "hrsh7th/nvim-cmp",
@@ -13,10 +13,12 @@ return {
     "saadparwaiz1/cmp_luasnip",
     "onsails/lspkind.nvim",
     "windwp/nvim-autopairs",
-    "SergioRibera/cmp-dotenv", -- add dotenv plugin as dependency
+    "SergioRibera/cmp-dotenv",
   },
   config = function()
     local cmp = require("cmp")
+
+    -- Initialize autopairs integration for automatic closing.
     require("nvim-autopairs").setup()
     cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
 
@@ -31,8 +33,8 @@ return {
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "buffer" },
-        -- You can comment out the global dotenv source if you want it only in .env files:
         { name = "dotenv" },
+        { name = "supermaven" },
       },
       formatting = {
         format = require("lspkind").cmp_format({
@@ -50,14 +52,5 @@ return {
         },
       },
     })
-
-    -- Optional: if you want dotenv completions only for .env files, you can remove it from the
-    -- global sources list above and add it here:
-    --
-    -- cmp.setup.filetype("env", {
-    --   sources = {
-    --     { name = "dotenv" },
-    --   },
-    -- })
   end,
 }

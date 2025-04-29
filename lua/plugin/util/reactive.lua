@@ -19,7 +19,6 @@ return {
         },
       },
       modes = {
-        -- this does not work when whichkey is enabled
         no = {
           operators = {
             [{ "gu", "gU", "g~", "~" }] = {

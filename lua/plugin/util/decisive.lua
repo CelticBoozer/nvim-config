@@ -8,14 +8,14 @@ return {
   dependencies = {},
   keys = {
     {
-      "<leader>cca",
+      "<leader>csv",
       ":lua require('decisive').align_csv({})<cr>",
       { silent = true },
       desc = "Align CSV",
       mode = "n",
     },
     {
-      "<leader>ccA",
+      "<leader>csvc",
       ":lua require('decisive').align_csv_clear({})<cr>",
       { silent = true },
       desc = "Align CSV clear",

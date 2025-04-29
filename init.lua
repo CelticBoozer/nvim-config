@@ -1,7 +1,5 @@
--- init.lua
+-- NOTE: Core initialization file for Neovim configuration. Requires and sets up modules.
 require("core.options")
-
--- Bootstrap and setup lazy.nvim through its own plugin spec
 require("core.lazy")
 
 -- Safe telescope extension loading

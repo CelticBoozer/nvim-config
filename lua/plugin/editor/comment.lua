@@ -1,5 +1,5 @@
 -- INFO: Smart comment toggling with context awareness
--- NOTE: Supports language-specific comment styles
+-- NOTE: Supports language-specific comment styles.
 
 return {
   "numToStr/Comment.nvim",
@@ -9,25 +9,23 @@ return {
     "JoosepAlviste/nvim-ts-context-commentstring",
   },
   config = function()
-    -- First ensure treesitter is initialized
+    -- INFO: Initialize Treesitter and context-aware commentstring integration.
     require("nvim-treesitter.configs").setup({})
-
-    -- Then setup context commentstring
     require("ts_context_commentstring").setup({})
 
-    -- Finally configure Comment.nvim
+    -- INFO: Configure Comment.nvim with a pre-hook for context-aware commenting.
     require("Comment").setup({
       pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
       toggler = {
-        line = "<leader>cc",
-        block = "<leader>bc",
+        line = "<leader>cc", -- Toggle line comment
+        block = "<leader>cb", -- Toggle block comment
       },
       opleader = {
-        line = "<leader>c",
-        block = "<leader>b",
+        line = "<leader>cc", -- Operator-pending line comment
+        block = "<leader>cb", -- Operator-pending block comment
       },
       extra = {
-        eol = "<leader>cA",
+        eol = "<leader>cA", -- Comment at the end of line
       },
     })
   end,

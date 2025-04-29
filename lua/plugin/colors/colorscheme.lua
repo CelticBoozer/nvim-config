@@ -23,10 +23,8 @@ return {
     for option, value in pairs(opts) do
       vim.g["gruvbox_material_" .. option] = value
     end
-
     -- Set colorscheme
     vim.cmd.colorscheme("gruvbox-material")
-
     -- Custom float window styling
     vim.api.nvim_set_hl(0, "NormalFloat", { fg = "#d4be98" })
     vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#d4be98" })

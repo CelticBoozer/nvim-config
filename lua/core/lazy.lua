@@ -2,6 +2,7 @@
 -- NOTE: Essential foundation for plugin management. Handles installation, updates, and lazy loading.
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
   local out = vim.fn.system({
@@ -22,6 +23,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     os.exit(1)
   end
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 -- Setup lazy.nvim
@@ -31,7 +33,6 @@ require("lazy").setup({
     { import = "plugin.completion" },
     { import = "plugin.dap" },
     { import = "plugin.editor" },
-    { import = "plugin.git" },
     { import = "plugin.lsp" },
     { import = "plugin.syntax" },
     { import = "plugin.testing" },

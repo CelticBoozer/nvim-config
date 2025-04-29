@@ -12,21 +12,8 @@ return {
   },
   opts = {
     defaults = {
-      mappings = {
-        i = {
-          ["<C-h>"] = require("telescope.actions").which_key,
-          ["<C-s>"] = require("telescope.actions").select_vertical,
-          ["<C-x>"] = require("telescope.actions").select_horizontal,
-        },
-        n = {
-          s = require("telescope.actions").select_vertical,
-          S = require("telescope.actions").select_horizontal,
-          t = require("telescope.actions").select_tab,
-        },
-      },
       layout_strategy = "horizontal",
       layout_config = {
-        preview_width = 0.6,
         width = 0.95,
         height = 0.85,
       },

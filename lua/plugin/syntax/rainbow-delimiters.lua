@@ -1,8 +1,8 @@
 -- INFO: Syntax-aware delimiter highlighting
 -- NOTE: Context-aware bracket/quote colorization
+
 return {
   "hiphish/rainbow-delimiters.nvim",
-  event = "VeryLazy",
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
   },
