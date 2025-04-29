@@ -3,7 +3,20 @@
 -- luacheck:ignore 111
 
 std = {
-  globals = { "vim", "require", "strategy", "query", "globals", "math" },
+  globals = {
+    "vim",
+    "require",
+    "strategy",
+    "query",
+    "globals",
+    "math",
+    "pcall",
+    "os",
+    "pairs",
+    "string",
+    "table",
+    "ipairs",
+  },
 }
 
 codes = true

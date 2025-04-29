@@ -1,8 +1,5 @@
 -- INFO: Unified file formatting interface
 -- NOTE: Handles code formatting through LSP and external tools.
--- External Dependencies: "sed" (for trim_whitespace formatting) and external formatters (ruff, stylua, prettier, etc.)
--- Installed via lazy.nvim:
---   • stevearc/conform.nvim
 
 return {
   "stevearc/conform.nvim",

@@ -21,7 +21,7 @@ file, LSP integration, and consistent style conventions).
 ```bash
 git clone https://github.com/CelticBoozer/nvim-config.git ~/.config/nvim
 ```
-
+<!-- markdownlint-disable-file MD029 -->
 3. Install plugin manager (lazy.nvim) will automatically setup on first launch.
 4. Open Neovim and let it install plugins.
 5. Install external dependencies listed below.
@@ -55,7 +55,7 @@ coloring.
 - Quickkey Hints: which-key integration for discovering keybindings.
 
 ## 📚 Usage Examples
-
+<!-- markdownlint-disable-file MD033 -->
 - Open Telescope file search: <leader>ff
 - Toggle NvimTree: <leader>te
 - Git status (lazygit): <leader>gg
