@@ -76,7 +76,7 @@ repository. Or you can donate.
 
 ### :star: Star history
 
-[![Star History Chart](https://www.star-history.com/#CelticBoozer/nvim-config&CelticBoozer/dotfiles&Timeline)
+![Star History Chart](https://www.star-history.com/#CelticBoozer/nvim-config&CelticBoozer/dotfiles&Timeline)
 
 ### :coin: Donation
 <!-- cSpell:disable -->
