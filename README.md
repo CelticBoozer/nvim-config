@@ -65,7 +65,22 @@ when opening relevant files.
 
 [PLACE IMAGE HERE] – (e.g., screenshot of Neovim with this config)
 
-## ⭐ Stay Updated
+## :heart: Acknowledgements
 
-If you find this configuration helpful, consider starring the repo! Feedback
-and suggestions are always appreciated.
+I would like to thank the entire community, anyone who uses or is inspired by
+my dotfiles. To everyone who inspired or helped me (I tried to indicate each
+author in each script or file I borrowed fully or partially).
+
+If you like this project and want to express your gratitude - star this
+repository. Or you can donate.
+
+### :star: Star history
+
+[![Star History Chart](https://www.star-history.com/#CelticBoozer/nvim-config&CelticBoozer/dotfiles&Timeline)
+
+### :coin: Donation
+<!-- cSpell:disable -->
+| ![USDT-TRC20](.github/assets/USDT.jpg)     | ![BTC](.github/assets/BTC.jpg)                     | ![ETH](.github/assets/ETH.jpg)                     |
+|:----------------------------------:|:------------------------------------------:|:------------------------------------------:|
+| USDT TRC20                         | BTC                                        | ETH                                        |
+| TGhY5bCn12EDP3MGgs8Qg4YerczhP3PsC5 | bc1qru2p84r3zecva68e804jtjqp923mx2eekqwg3a | 0xb00d88737B0BD4f5cb5fc7519b3d27045b796ceb |
