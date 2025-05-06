@@ -1,4 +1,4 @@
-# Neovim configuration
+# :hammer_and_wrench: Neovim configuration
 
 ![commitlint](https://img.shields.io/github/actions/workflow/status/CelticBoozer/nvim-config/commitlint.yaml?branch=master&label=commitlint)
 ![StyLua](https://img.shields.io/github/actions/workflow/status/CelticBoozer/nvim-config/stylua.yaml?branch=master&label=StyLua)
@@ -17,11 +17,6 @@ file, LSP integration, and consistent style conventions).
 
 1. **Install Neovim** (version >= 0.8) on your system.
 2. **Clone this repo** into your config directory:
-
-```bash
-git clone https://github.com/CelticBoozer/nvim-config.git ~/.config/nvim
-```
-<!-- markdownlint-disable-file MD029 -->
 3. Install plugin manager (lazy.nvim) will automatically setup on first launch.
 4. Open Neovim and let it install plugins.
 5. Install external dependencies listed below.
@@ -54,16 +49,45 @@ version control.
 coloring.
 - Quickkey Hints: which-key integration for discovering keybindings.
 
-## 📚 Usage Examples
-<!-- markdownlint-disable-file MD033 -->
-- Open Telescope file search: <leader>ff
-- Toggle NvimTree: <leader>te
-- Git status (lazygit): <leader>gg
-- LSP actions: <leader>aa for code actions, <leader>tl for diagnostics, etc.
-- Color preview: Hex color codes will display actual colors via nvim-colorizer.lua
-when opening relevant files.
+## Hotkeys
 
-[PLACE IMAGE HERE] – (e.g., screenshot of Neovim with this config)
+| Group               | Key(s)               | Description                           |
+|---------------------|----------------------|---------------------------------------|
+| **File (⎈ f)**      | `<leader>ff`         | Find files (Telescope)                |
+|                     | `<leader>fr`         | Recently opened files                 |
+|                     | `<leader>fg`         | Live grep                             |
+|                     | `<leader>fb`         | List buffers                          |
+|                     | `<leader>fh`         | Help tags                             |
+| **Explorer (⎈ e)** | `<leader>e`          | Toggle file tree                      |
+|                     | `<leader>E`          | Focus file tree                       |
+| **Git (⎈ g)**       | `<leader>gs`         | Git status (Neogit)                   |
+|                     | `<leader>gc`         | Git commits                           |
+|                     | `<leader>gb`         | Git branches                          |
+|                     | `<leader>gd`         | Git diff                              |
+|                     | `<leader>gp`         | Git push                              |
+| **LSP (⎈ l)**       | `<leader>ld`         | Go to definition                      |
+|                     | `<leader>lh`         | Hover documentation                   |
+|                     | `<leader>li`         | LSP info                              |
+|                     | `<leader>lr`         | Rename symbol                         |
+|                     | `<leader>la`         | Code action                           |
+|                     | `<leader>lf`         | Format document                       |
+|                     | `<leader>le`         | Show diagnostics                      |
+|                     | `<leader>lq`         | Set quickfix list                     |
+| **Test/Debug (⎈ t)**| `<leader>tt`         | Toggle test summary                   |
+|                     | `<leader>tn`         | Next test                             |
+|                     | `<leader>tp`         | Previous test                         |
+|                     | `<leader>db`         | Toggle breakpoint                     |
+|                     | `<leader>dc`         | Continue (debug)                      |
+|                     | `<leader>dr`         | Run to cursor                         |
+|                     | `<leader>ds`         | Step over                             |
+|                     | `<leader>di`         | Step into                             |
+| **Search/Replace (⎈ s)** | `<leader>sr`   | Replace in file                       |
+|                     | `<leader>sR`         | Replace in project                    |
+|                     | `<leader>ss`         | Search word under cursor              |
+| **Plugins (⎈ p)**   | `<leader>pi`         | Plugin install                        |
+|                     | `<leader>pu`         | Plugin update                         |
+|                     | `<leader>ps`         | Plugin sync                           |
+|                     | `<leader>pc`         | Plugin clean                          |
 
 ## :heart: Acknowledgements
 
@@ -82,5 +106,5 @@ repository. Or you can donate.
 <!-- cSpell:disable -->
 | ![USDT-TRC20](.github/assets/USDT.jpg)     | ![BTC](.github/assets/BTC.jpg)                     | ![ETH](.github/assets/ETH.jpg)                     |
 |:----------------------------------:|:------------------------------------------:|:------------------------------------------:|
-| USDT TRC20                         | BTC                                        | ETH                                        |
+| USDT TRC20 | BTC | ETH |
 | TGhY5bCn12EDP3MGgs8Qg4YerczhP3PsC5 | bc1qru2p84r3zecva68e804jtjqp923mx2eekqwg3a | 0xb00d88737B0BD4f5cb5fc7519b3d27045b796ceb |

@@ -3,79 +3,77 @@
 
 return {
   "kevinhwang91/nvim-ufo",
-  event = "LspAttach",
-  dependencies = {
-    "kevinhwang91/promise-async",
+  dependencies = { "kevinhwang91/promise-async" },
+  event = { "BufReadPost", "BufNewFile" },
+  keys = {
     {
-      "luukvbaal/statuscol.nvim",
-      config = function()
-        require("statuscol").setup({
-          foldfunc = "builtin",
-          setopt = true,
-        })
+      "zM",
+      function()
+        require("ufo").closeAllFolds()
       end,
+      { desc = "Close All Folds" },
+    },
+    {
+      "zR",
+      function()
+        require("ufo").openAllFolds()
+      end,
+      { desc = "Open All Folds" },
     },
   },
   opts = {
-    fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
-      local newVirtText = {}
-      local suffix = (" 󰁂 %d "):format(endLnum - lnum)
-      local sufWidth = vim.fn.strdisplaywidth(suffix)
-      local targetWidth = width - sufWidth
-      local curWidth = 0
-
-      for _, chunk in ipairs(virtText) do
-        local chunkText = chunk[1]
-        local chunkWidth = vim.fn.strdisplaywidth(chunkText)
-        if targetWidth > curWidth + chunkWidth then
-          table.insert(newVirtText, chunk)
-        else
-          chunkText = truncate(chunkText, targetWidth - curWidth)
-          local hlGroup = chunk[2]
-          table.insert(newVirtText, { chunkText, hlGroup })
-          chunkWidth = vim.fn.strdisplaywidth(chunkText)
-          if curWidth + chunkWidth < targetWidth then
-            suffix = suffix .. (" "):rep(targetWidth - curWidth - chunkWidth)
-          end
-          break
-        end
-        curWidth = curWidth + chunkWidth
+    open_fold_hl_timeout = 150,
+    filetype_exclude = { "help", "dashboard", "neo-tree", "Trouble", "lazy", "mason" },
+    preview = {
+      win_config = {
+        border = { "", "─", "", "", "", "─", "", "" },
+        winhighlight = "Normal:Folded",
+        winblend = 0,
+      },
+      mappings = {
+        scrollU = "<C-u>",
+        scrollD = "<C-d>",
+        jumpTop = "[",
+        jumpBot = "]",
+      },
+    },
+    -- luacheck: ignore 212 113
+    provider_selector = function(bufnr, filetype, buftype)
+      local ft_map = {
+        vim = "indent",
+        python = { "indent" },
+        git = "",
+      }
+      ---@diagnostic disable-next-line: undefined-global
+      if ft_map[filetype] ~= nl then
+        return ft_map[filetype]
       end
-      table.insert(newVirtText, { suffix, "UfoFoldedEllipsis" })
-      return newVirtText
+      return function()
+        return require("ufo")
+          .getFolds(bufnr, "lsp")
+          :catch(function()
+            return require("ufo").getFolds(bufnr, "treesitter")
+          end)
+          :catch(function()
+            return require("ufo").getFolds(bufnr, "indent")
+          end)
+      end
     end,
-    provider_selector = function()
-      return { "treesitter", "indent" }
+    fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
+      local folded_lines = endLnum - lnum
+      virtText[#virtText + 1] = { (" ↙ %d lines "):format(folded_lines), "Folded" }
+      return virtText
     end,
   },
   config = function(_, opts)
-    -- Workaround for auto-session conflict:
-    vim.api.nvim_create_autocmd("BufReadPost", {
-      callback = function()
-        if not pcall(require, "ufo") then
-          vim.notify("nvim-ufo failed to load", vim.log.levels.WARN)
-          return
-        end
-        require("ufo").setup(opts)
-      end,
-    })
-
-    -- Configure LSP folding capabilities
-    vim.o.foldcolumn = "1"
-    vim.o.foldlevel = 99
-    vim.o.foldlevelstart = 99
-    vim.o.foldenable = true
-    vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-
-    -- Link custom highlight group
-    vim.api.nvim_set_hl(0, "UfoFoldedEllipsis", { link = "Comment" })
-
-    -- Key mappings for folding
-    vim.keymap.set("n", "zE", require("ufo").openAllFolds)
-    vim.keymap.set("n", "zC", require("ufo").closeAllFolds)
-    vim.keymap.set("n", "ze", require("ufo").openFoldsExceptKinds)
-    vim.keymap.set("n", "zc", function()
-      require("ufo").closeFoldsWith(1)
-    end, { desc = "Close current fold" })
+    local caps = vim.lsp.protocol.make_client_capabilities()
+    caps.textDocument.foldingRange = {
+      dynamicRegistration = false,
+      lineFoldingOnly = true,
+    }
+    for _, server in ipairs(vim.tbl_keys(require("lspconfig").servers or {})) do
+      require("lspconfig")[server].setup({ capabilities = caps })
+    end
+    require("ufo").setup(opts)
   end,
 }
