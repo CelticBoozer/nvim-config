@@ -39,7 +39,7 @@ return {
       desc = "Step Out",
     },
     {
-      "<C-F8>",
+      "<leader>db",
       function()
         require("dap").toggle_breakpoint()
       end,

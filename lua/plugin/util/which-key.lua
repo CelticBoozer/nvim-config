@@ -15,13 +15,12 @@ return {
   },
   opts = {
     icons = {
-      group = vim.g.icons_enabled and "" or "+",
+      group = " ",
       separator = "",
       breadcrumb = "»",
     },
-    window = {
+    win = {
       border = "rounded",
-      margin = { 1, 0, 1, 0 },
     },
     layout = {
       spacing = 4,
@@ -32,15 +31,14 @@ return {
     wk.setup(opts)
 
     -- Common prefix registrations
-    wk.register({
-      ["<leader>"] = {
-        f = { name = "Find" },
-        t = { name = "Tool panels" },
-        d = { name = "Debug" },
-        s = { name = "Session" },
-        c = { name = "Comment" },
-        r = { name = "Refactor" },
-      },
+    wk.add({
+      { "<leader>c", group = "Comment", icon = "󰿟 " },
+      { "<leader>d", group = "Debug" },
+      { "<leader>e", group = "Execute", icon = " " },
+      { "<leader>f", group = "Find", icon = " " },
+      { "<leader>r", group = "Refactor" },
+      { "<leader>s", group = "Session" },
+      { "<leader>t", group = "Tool panels", icon = " " },
     })
   end,
 }

@@ -44,6 +44,7 @@ o.mousemoveevent = true
 -- Basic color setup
 o.termguicolors = true
 o.background = "dark"
+o.foldlevel = 99
 
 vim.diagnostic.config({
   severity_sort = true, -- Sort all diagnostics by severity
