@@ -15,14 +15,19 @@ return {
         style = "underline",
       },
       buffer_close_icon = "",
-      modified_icon = "",
+      modified_icon = "",
       close_icon = "",
       left_trunc_marker = "",
       right_trunc_marker = "",
       diagnostics = "nvim_lsp",
       diagnostics_indicator = function(count, level)
-        local icon = level:match("error") and " " or " "
-        return icon .. count
+        local icons = {
+          error = " ",
+          warning = " ",
+          info = " ",
+          hint = " ",
+        }
+        return (icons[level] or "?") .. count
       end,
       offsets = {
         {
@@ -48,17 +53,159 @@ return {
       },
     },
     highlights = {
+      fill = {
+        fg = "#d4be98",
+        bg = "#32302f",
+      },
+      background = {
+        fg = "#7c6f64",
+        bg = "#252423",
+      },
+      close_button = {
+        fg = "#7c6f64",
+        bg = "#252423",
+      },
+      close_button_selected = {
+        fg = "#d4be98",
+        bg = "#7c6f64",
+      },
+      buffer_selected = {
+        fg = "#d4be98",
+        bg = "#7c6f64",
+        bold = true,
+        italic = true,
+      },
+      numbers = {
+        fg = "#7c6f64",
+        bg = "#252423",
+      },
+      numbers_selected = {
+        fg = "#d4be98",
+        bg = "#7c6f64",
+        bold = true,
+        italic = true,
+      },
+      hint = {
+        fg = "#a9b665",
+        bg = "#252423",
+        sp = "#a9b665",
+      },
+      hint_selected = {
+        fg = "#a9b665",
+        bg = "#7c6f64",
+        sp = "#a9b665",
+        bold = true,
+        italic = true,
+      },
+      hint_diagnostic = {
+        fg = "#a9b665",
+        bg = "#252423",
+        sp = "#a9b665",
+      },
+      hint_diagnostic_selected = {
+        fg = "#a9b665",
+        bg = "#7c6f64",
+        sp = "#a9b665",
+        bold = true,
+        italic = true,
+      },
+      info = {
+        fg = "#89b482",
+        bg = "#252423",
+        sp = "#89b482",
+      },
+      info_selected = {
+        fg = "#89b482",
+        bg = "#7c6f64",
+        sp = "#89b482",
+        bold = true,
+        italic = true,
+      },
+      info_diagnostic = {
+        fg = "#89b482",
+        bg = "#252423",
+        sp = "#89b482",
+      },
+      info_diagnostic_selected = {
+        fg = "#89b482",
+        bg = "#7c6f64",
+        sp = "#89b482",
+        bold = true,
+        italic = true,
+      },
+      warning = {
+        fg = "#d8a657",
+        bg = "#252423",
+        sp = "#d8a657",
+      },
+      warning_selected = {
+        fg = "#d8a657",
+        bg = "#7c6f64",
+        sp = "#d8a657",
+        bold = true,
+        italic = true,
+      },
+      warning_diagnostic = {
+        fg = "#d8a657",
+        bg = "#252423",
+        sp = "#d8a657",
+      },
+      warning_diagnostic_selected = {
+        fg = "#d8a657",
+        bg = "#7c6f64",
+        sp = "#d8a657",
+        bold = true,
+        italic = true,
+      },
+      error = {
+        fg = "#ea6962",
+        bg = "#252423",
+        sp = "#ea6962",
+      },
+      error_selected = {
+        fg = "#ea6962",
+        bg = "#7c6f64",
+        sp = "#ea6962",
+        bold = true,
+        italic = true,
+      },
+      error_diagnostic = {
+        fg = "#ea6962",
+        bg = "#252423",
+        sp = "#ea6962",
+      },
+      error_diagnostic_selected = {
+        fg = "#ea6962",
+        bg = "#7c6f64",
+        sp = "#ea6962",
+        bold = true,
+        italic = true,
+      },
+      modified = {
+        fg = "#a9b665",
+        bg = "#252423",
+      },
+      modified_selected = {
+        fg = "#a9b665",
+        bg = "#7c6f64",
+      },
+      duplicate = {
+        fg = "#7c6f64",
+        bg = "#252423",
+        italic = true,
+      },
+      duplicate_selected = {
+        fg = "#d4be98",
+        bg = "#7c6f64",
+        italic = true,
+      },
       separator = {
         fg = "#252423",
-        bg = "#32302f",
+        bg = "#252423",
       },
       separator_selected = {
         fg = "#252423",
-        bg = "#32302f",
-      },
-      fill = {
-        fg = "#252423",
-        bg = "#252423",
+        bg = "#7c6f64",
       },
     },
   },

@@ -6,8 +6,8 @@ return {
   cmd = { "RunCode", "RunFile", "RunProject" },
   keys = {
     { "<leader>er", "<cmd>RunCode<CR>", desc = "Run code" },
-    { "<leader>erf", "<cmd>RunFile<CR>", desc = "Run file" },
-    { "<leader>erp", "<cmd>RunProject<CR>", desc = "Run project" },
+    { "<leader>ef", "<cmd>RunFile<CR>", desc = "Run file" },
+    { "<leader>ep", "<cmd>RunProject<CR>", desc = "Run project" },
   },
   opts = {
     mode = "term",
@@ -15,20 +15,6 @@ return {
     term = {
       position = "bot",
       size = 15,
-    },
-    filetype = {
-      java = {
-        "cd $dir &&",
-        "javac $fileName &&",
-        "java $fileNameWithoutExt",
-      },
-      python = "python3 -u",
-      typescript = "deno run",
-      rust = {
-        "cd $dir &&",
-        "rustc $fileName &&",
-        "$dir/$fileNameWithoutExt",
-      },
     },
   },
 }

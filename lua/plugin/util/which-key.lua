@@ -32,12 +32,13 @@ return {
 
     -- Common prefix registrations
     wk.add({
+      { "<leader>a", group = "Action", icon = " " },
       { "<leader>c", group = "Comment", icon = "󰿟 " },
-      { "<leader>d", group = "Debug" },
+      { "<leader>d", group = "Debug", icon = " " },
       { "<leader>e", group = "Execute", icon = " " },
       { "<leader>f", group = "Find", icon = " " },
-      { "<leader>r", group = "Refactor" },
-      { "<leader>s", group = "Session" },
+      { "<leader>r", group = "Refactor", icon = " " },
+      { "<leader>s", group = "Session", icon = " " },
       { "<leader>t", group = "Tool panels", icon = " " },
     })
   end,
