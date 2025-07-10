@@ -17,23 +17,13 @@ return {
       }
       return capabilities
     end,
-
     signs = {
       Error = "",
       Warn = "",
       Hint = "",
       Info = "",
     },
-
     servers = {
-      lua_ls = {
-        settings = {
-          Lua = {
-            runtime = { version = "LuaJIT" },
-            workspace = { checkThirdParty = false },
-          },
-        },
-      },
       bashls = {},
       cssls = {},
       dockerls = {},
@@ -44,12 +34,12 @@ return {
       jdtls = {},
       jsonls = {},
       lemminx = {},
+      lua_ls = {},
       marksman = {},
       sqlls = {},
+      ruff = {},
       taplo = {},
-      ts_ls = {},
       yamlls = {},
-      pylsp = {},
     },
   },
   config = function(_, opts)

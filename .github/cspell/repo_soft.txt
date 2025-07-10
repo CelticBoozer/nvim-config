@@ -2,7 +2,6 @@ nvim
 Styleguides
 luacheck
 yamlfmt
-neogit
 luarocks
 Luasnip
 lualine
@@ -11,3 +10,8 @@ lazygit
 Gruvbox
 Quickkey
 lspconfig
+buildx
+neotest
+javac
+pandoc
+chafa

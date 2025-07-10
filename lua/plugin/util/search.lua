@@ -30,10 +30,6 @@ return {
         tele_func = require("telescope.builtin").live_grep,
       },
       {
-        name = "Git files",
-        tele_func = require("telescope.builtin").git_files,
-      },
-      {
         name = "Buffers",
         tele_func = require("telescope.builtin").buffers,
       },
@@ -59,6 +55,12 @@ return {
         name = "Undo history",
         tele_func = function()
           require("telescope").extensions.undo.undo()
+        end,
+      },
+      {
+        name = "Clipboard history",
+        tele_func = function()
+          require("telescope").extensions.yank_history.yank_history()
         end,
       },
     },

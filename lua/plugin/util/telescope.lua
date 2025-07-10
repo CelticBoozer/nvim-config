@@ -21,8 +21,30 @@ return {
         "node_modules",
         ".git",
         ".cache",
-        "%.jpg",
-        "%.png",
+      },
+    },
+    pickers = {
+      buffers = {
+        mappings = {
+          i = {
+            ["<c-d>"] = require("telescope.actions").delete_buffer + require("telescope.actions").move_to_top,
+            ["<c-t>"] = require("telescope.actions").select_tab,
+          },
+          n = {
+            ["d"] = require("telescope.actions").delete_buffer + require("telescope.actions").move_to_top,
+            ["t"] = require("telescope.actions").select_tab,
+          },
+        },
+      },
+      live_grep = {
+        mappings = {
+          i = {
+            ["<c-t>"] = require("telescope.actions").select_tab,
+          },
+          n = {
+            ["t"] = require("telescope.actions").select_tab,
+          },
+        },
       },
     },
     extensions = {

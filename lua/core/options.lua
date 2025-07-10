@@ -46,6 +46,11 @@ o.termguicolors = true
 o.background = "dark"
 o.foldlevel = 99
 
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_node_provider = 0
+
 vim.diagnostic.config({
   severity_sort = true, -- Sort all diagnostics by severity
 })
