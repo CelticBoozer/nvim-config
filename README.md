@@ -53,6 +53,7 @@ file, LSP integration, and consistent style conventions).
 | **pandoc** / **latex2html**                              | `render-markdown.nvim` (LaTeX block rendering)                                                                                                      |
 | **chafa**                                                | `telescope-media-files.nvim`                                                                                                                        |
 | **sqlite**                                               | `yanky.nvim`                                                                                                                                        |
+| **sniprun**                                              | `sniprun.nvim`                                                                                                                                      |
 
 ## :star2: Features
 
