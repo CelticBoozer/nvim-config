@@ -56,18 +56,20 @@ file, LSP integration, and consistent style conventions).
 
 ## :star2: Features
 
-- Modular Plugin Setup: Each plugin config is in its own Lua file (e.g.,
-lua/plugin/git/git.lua), promoting clarity and easy updates.
-- LSP & Treesitter: Built-in support for many languages via Mason, lspconfig,
-and Treesitter.
-- Completion & Snippets: Autocompletion with nvim-cmp and Luasnip.
-- Statusline & Icons: Beautiful statusline (lualine) and file icons
-(nvim-web-devicons) with auto color adaptation.
-- Git Integration: Lazy-loaded Git plugins (e.g., lazygit) for in-editor
-version control.
-- Theming: Gruvbox Material colorscheme with UI tweaks, plus dynamic icon
-coloring.
-- Quickkey Hints: which-key integration for discovering keybindings.
+- :jigsaw: **Modular Plugin Setup**: Each plugin config is in its own Lua file (
+  e.g., `lua/plugin/git/git.lua`), promoting clarity and easy updates.
+- :globe_with_meridians: **LSP & Treesitter**: Built‑in support for many
+  languages via Mason, `lspconfig`, and Treesitter.
+- :rocket: **Completion & Snippets**: Autocompletion with `nvim-cmp` and
+  Luasnip.
+- :zap: **Statusline & Icons**: Beautiful statusline (`lualine`) and file icons
+  (`nvim-web-devicons`) with auto color adaptation.
+- :wrench: **Git Integration**: Lazy‑loaded Git plugins (e.g., `lazygit.nvim`)
+  for in‑editor version control.
+- :art: **Theming**: Gruvbox‑Material colorscheme with UI tweaks, plus dynamic
+  icon coloring.
+- :mag: **Quickkey Hints**: `which-key.nvim` integration for discovering
+  keybindings.
 
 ## :heart: Acknowledgements
 
