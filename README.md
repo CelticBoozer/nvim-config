@@ -80,7 +80,7 @@ repository. Or you can donate.
 
 ### :star: Star history
 
-[![Star History Chart](https://api.star-history.com/svg?repos=CelticBoozer/nvim-config&type=Timeline&theme=dark)](https://star-history.com/#CelticBoozer/nvim-config&Timeline)
+![Star History Chart](https://api.star-history.com/svg?repos=CelticBoozer/nvim-config&type=Timeline&theme=dark)
 
 ### :coin: Donation
 
