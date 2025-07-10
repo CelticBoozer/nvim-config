@@ -15,13 +15,22 @@ file, LSP integration, and consistent style conventions).
 
 ![preview](.github/assets/full.png)
 
-## 🚀 Setup Instructions
+## :bookmark_tabs: Table of Contents
+
+- [:rocket: Setup Instructions](#rocket-setup-instructions)
+- [:star2: Features](#star2-features)
+- [:heart: Acknowledgements](#heart-acknowledgements)
+  - [:star: Star history](#star-star-history)
+  - [:coin: Donation](#coin-donation)
+
+## :rocket: Setup Instructions
 
 1. **Install Neovim** on your system.
 2. **Clone this repo** into your config directory:
 3. Install plugin manager (lazy.nvim) will automatically setup on first launch.
 4. Open Neovim and let it install plugins.
 5. Install external dependencies listed below.
+
 <!-- markdownlint-disable MD013 -->
 | External Dependency                                      | Plugins                                                                                                                                             |
 | -------------------------------------------------------- |---------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -45,7 +54,7 @@ file, LSP integration, and consistent style conventions).
 | **chafa**                                                | `telescope-media-files.nvim`                                                                                                                        |
 | **sqlite**                                               | `yanky.nvim`                                                                                                                                        |
 
-## 🌟 Features
+## :star2: Features
 
 - Modular Plugin Setup: Each plugin config is in its own Lua file (e.g.,
 lua/plugin/git/git.lua), promoting clarity and easy updates.
@@ -74,6 +83,7 @@ repository. Or you can donate.
 [![Star History Chart](https://api.star-history.com/svg?repos=CelticBoozer/nvim-config&type=Timeline&theme=dark)](https://star-history.com/#CelticBoozer/nvim-config&Timeline)
 
 ### :coin: Donation
+
 <!-- cSpell:disable -->
 | ![USDT-TRC20](.github/assets/USDT.jpg)     | ![BTC](.github/assets/BTC.jpg)             | ![ETH](.github/assets/ETH.jpg)             |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
